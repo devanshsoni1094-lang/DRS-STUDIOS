@@ -206,9 +206,11 @@ body {
   animation: deabsorb-snap-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* Dynamic Ambient Absorption Glow for Sections */
+/* Dynamic Ambient Absorption Glow & Interactive Section Hover Lighting */
 section, footer {
   position: relative;
+  transition: border-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 section::after, footer::after {
@@ -216,15 +218,61 @@ section::after, footer::after {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(550px circle at var(--absorbed-x, -999px) var(--absorbed-y, -999px), rgba(217, 139, 58, 0.08), transparent 70%);
+  background: radial-gradient(
+    650px circle at var(--absorbed-x, var(--mouse-x, -999px)) var(--absorbed-y, var(--mouse-y, -999px)),
+    rgba(217, 139, 58, 0.09) 0%,
+    rgba(198, 169, 108, 0.03) 40%,
+    transparent 75%
+  );
   opacity: 0;
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
 }
 
 section.cursor-absorbed-surface::after,
-footer.cursor-absorbed-surface::after {
+footer.cursor-absorbed-surface::after,
+section.section-active-interactive::after,
+footer.section-active-interactive::after {
   opacity: 1;
+}
+
+/* Section Header Kicker Accent Bar Expansion on Hover */
+.section-kicker-bar {
+  display: inline-block;
+  width: 2rem;
+  height: 2px;
+  background: linear-gradient(90deg, #D98B3A, #C6A96C);
+  border-radius: 9999px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+section.section-active-interactive .section-kicker-bar,
+section:hover .section-kicker-bar {
+  width: 3.5rem;
+  box-shadow: 0 0 14px rgba(217, 139, 58, 0.7);
+}
+
+/* Glass Panels inside Active Section subtly elevate and catch light */
+section .spatial-glass,
+footer .spatial-glass {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+section.section-active-interactive .spatial-glass {
+  border-top-color: rgba(217, 139, 58, 0.35);
+  box-shadow: 
+    0 26px 70px -15px rgba(0, 0, 0, 0.8),
+    0 0 35px -5px rgba(217, 139, 58, 0.12),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.35);
+}
+
+/* Subtle image container glow on section hover */
+section.section-active-interactive .domain-thumbnail-frame {
+  border-color: rgba(217, 139, 58, 0.35);
+  box-shadow: 0 15px 35px -5px rgba(217, 139, 58, 0.15);
 }
 
 /* Smooth motion accessibility */

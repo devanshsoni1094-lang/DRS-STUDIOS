@@ -17,11 +17,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       className="group relative cursor-pointer overflow-hidden rounded-3xl spatial-glass transition-all duration-500 hover:border-[#D98B3A]/60 hover:shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_40px_rgba(217,139,58,0.2)] flex flex-col justify-between"
     >
       {/* Visual Frame */}
-      <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden bg-[#0A0A0E]">
+      <div className="domain-thumbnail-frame relative aspect-[16/10] w-full overflow-hidden bg-[#0A0A0E] flex items-center justify-center">
         <img
           src={project.heroImage}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95 contrast-110"
+          className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95 contrast-110"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-75 group-hover:opacity-40 transition-opacity" />

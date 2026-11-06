@@ -42,11 +42,11 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
             onClick={() => onSelect(service)}
           >
             {/* Pure 16:9 Aspect Ratio Frame — Matches 1024x576 exactly so 0% of the graphic is cut */}
-            <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/15 bg-[#08080C] shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-500 group-hover:border-[#D98B3A]/70 group-hover:shadow-[0_20px_60px_rgba(217,139,58,0.3)]">
+            <div className="domain-thumbnail-frame relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/15 bg-[#08080C] shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-500 group-hover:border-[#D98B3A]/70 group-hover:shadow-[0_20px_60px_rgba(217,139,58,0.3)] flex items-center justify-center p-1 sm:p-1.5">
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-full h-full object-contain sm:object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02] filter brightness-100 contrast-105"
+                className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.01] filter brightness-100 contrast-105"
                 loading="lazy"
               />
 

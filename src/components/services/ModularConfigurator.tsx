@@ -100,11 +100,11 @@ export const ModularConfigurator: React.FC<ModularConfiguratorProps> = ({
 
         {/* Super Package Unclipped 16:9 Showcase Frame (100% visible, no cut badges) */}
         <div className="mb-12">
-          <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/15 bg-[#08080C] shadow-[0_20px_50px_rgba(0,0,0,0.85)] group">
+          <div className="domain-thumbnail-frame relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/15 bg-[#08080C] shadow-[0_20px_50px_rgba(0,0,0,0.85)] group flex items-center justify-center p-1 sm:p-2">
             <img
               src="/services/complete-digital-management.jpg"
               alt="DRS STUDIOS Super Package"
-              className="w-full h-full object-contain sm:object-cover filter brightness-100 contrast-105 group-hover:scale-[1.01] transition-transform duration-700"
+              className="w-full h-full object-contain filter brightness-100 contrast-105 group-hover:scale-[1.01] transition-transform duration-700"
             />
           </div>
 
@@ -138,11 +138,11 @@ export const ModularConfigurator: React.FC<ModularConfiguratorProps> = ({
                 }`}
               >
                 {/* Domain Thumbnail Image Header in Pure 16:9 */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#08080C] border-b border-white/10">
+                <div className="domain-thumbnail-frame relative aspect-[16/9] w-full overflow-hidden bg-[#08080C] border-b border-white/10 flex items-center justify-center p-0.5">
                   <img
                     src={opt.thumbnail}
                     alt={opt.name}
-                    className="w-full h-full object-contain sm:object-cover filter contrast-105"
+                    className="w-full h-full object-contain filter contrast-105"
                   />
 
                   <div className="absolute top-2.5 right-2.5">

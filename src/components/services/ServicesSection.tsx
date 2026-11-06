@@ -25,7 +25,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-6">
-          <span className="w-8 h-[2px] bg-gradient-to-r from-[#D98B3A] to-[#C6A96C]" />
+          <span className="section-kicker-bar" />
           <span className="text-xs font-mono tracking-[0.2em] uppercase text-[#D98B3A]">
             07 // FLOATING GLASS ECOSYSTEM
           </span>

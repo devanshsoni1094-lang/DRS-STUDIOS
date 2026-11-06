@@ -37,7 +37,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onStartProject }) =>
         
         {/* Section Tag */}
         <div className="flex items-center gap-3 mb-6">
-          <span className="w-8 h-[2px] bg-gradient-to-r from-[#D98B3A] to-[#C6A96C]" />
+          <span className="section-kicker-bar" />
           <span className="text-xs font-mono tracking-[0.2em] uppercase text-[#D98B3A]">
             09 // ABOUT DRS STUDIOS
           </span>

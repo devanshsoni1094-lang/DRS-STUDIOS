@@ -55,11 +55,11 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
         {/* Full 16:9 Unclipped Domain Thumbnail Display (100% visible, no cropped badges) */}
         <div className="mb-8">
-          <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/15 bg-[#08080C] shadow-[0_20px_50px_rgba(0,0,0,0.85)]">
+          <div className="domain-thumbnail-frame relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/15 bg-[#08080C] shadow-[0_20px_50px_rgba(0,0,0,0.85)] flex items-center justify-center p-1 sm:p-2">
             <img
               src={service.image}
               alt={service.title}
-              className="w-full h-full object-contain sm:object-cover filter brightness-100 contrast-105"
+              className="w-full h-full object-contain filter brightness-100 contrast-105"
             />
           </div>
 

@@ -58,11 +58,11 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
         </p>
 
         {/* Hero Visual */}
-        <div className="w-full h-72 sm:h-96 lg:h-[460px] rounded-2xl overflow-hidden mb-10 border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+        <div className="domain-thumbnail-frame relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-10 border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.8)] bg-[#0A0A0E] flex items-center justify-center p-1 sm:p-2">
           <img
             src={project.heroImage}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         </div>
 

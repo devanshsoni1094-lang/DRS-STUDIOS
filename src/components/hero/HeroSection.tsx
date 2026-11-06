@@ -141,13 +141,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 className="spatial-glass rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between group cursor-pointer hover:border-[#D98B3A]/50 transition-all duration-300 relative overflow-hidden"
               >
                 {/* 16:9 Crisp Uncropped Thumbnail Image Container */}
-                <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-3.5 border border-white/10 bg-[#08080C] group-hover:border-[#D98B3A]/30 transition-all">
+                <div className="domain-thumbnail-frame relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-3.5 border border-white/10 bg-[#08080C] group-hover:border-[#D98B3A]/40 transition-all flex items-center justify-center p-0.5">
                   <img
                     src={domain.image}
                     alt={domain.title}
-                    className="w-full h-full object-cover filter contrast-105 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain filter contrast-105 group-hover:scale-[1.02] transition-transform duration-500"
                   />
-                  <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/75 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-[#D98B3A]">
+                  <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/80 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-[#D98B3A]">
                     {domain.metric}
                   </div>
                 </div>
