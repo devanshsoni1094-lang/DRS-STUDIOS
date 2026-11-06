@@ -3,16 +3,14 @@ import {
   Sparkles,
   Youtube,
   Instagram,
-  Linkedin,
   Globe,
-  Zap,
-  Code,
+  Palette,
   Check,
   ChevronDown,
   ArrowUpRight,
 } from 'lucide-react';
 import { PricingCategory, PricingPackageItem } from '../../types';
-import { growthBrandingPackages, webDevPackages } from '../../data/pricing';
+import { pricingPackages } from '../../data/pricing';
 
 interface PricingSectionProps {
   onSelectPackage: (packageTitle: string, priceSummary: string) => void;
@@ -23,7 +21,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
   onSelectPackage,
   onCustomBudget,
 }) => {
-  const [activeCategory, setActiveCategory] = useState<PricingCategory>('growth-branding');
+  const [activeCategory, setActiveCategory] = useState<PricingCategory>('all');
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
 
   const toggleExpand = (id: string) => {
@@ -33,7 +31,9 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
     }));
   };
 
-  const currentPackages = activeCategory === 'growth-branding' ? growthBrandingPackages : webDevPackages;
+  const currentPackages = activeCategory === 'all'
+    ? pricingPackages
+    : pricingPackages.filter((p) => p.category === activeCategory);
 
   const renderIcon = (type: PricingPackageItem['iconType']) => {
     switch (type) {
@@ -55,28 +55,17 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             <Instagram className="w-4 h-4" />
           </div>
         );
-      case 'linkedin':
-        return (
-          <div className="w-9 h-9 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400">
-            <Linkedin className="w-4 h-4" />
-          </div>
-        );
       case 'globe':
         return (
           <div className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
             <Globe className="w-4 h-4" />
           </div>
         );
-      case 'zap':
-        return (
-          <div className="w-9 h-9 rounded-xl bg-[#D98B3A]/20 border border-[#D98B3A]/40 flex items-center justify-center text-[#D98B3A] shadow-[0_0_12px_rgba(217,139,58,0.25)]">
-            <Zap className="w-4 h-4" />
-          </div>
-        );
-      case 'code':
+      case 'palette':
+      case 'film':
         return (
           <div className="w-9 h-9 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
-            <Code className="w-4 h-4" />
+            <Palette className="w-4 h-4" />
           </div>
         );
       default:
@@ -92,12 +81,12 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
     <section
       id="pricing"
       data-section-name="PRICING PACKAGES"
-      className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-white/10"
+      className="py-24 sm:py-32 bg-[#050505] relative overflow-hidden border-b border-white/10"
     >
       {/* Background warm amber glow blooms */}
-      <div className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[700px] h-[500px] bg-[#D98B3A]/10 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[750px] h-[550px] bg-[#D98B3A]/10 rounded-full blur-[190px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-[1540px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Pricing Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
@@ -122,35 +111,48 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
         <div className="flex justify-center mb-12 sm:mb-16">
           <div className="inline-flex items-center p-1.5 rounded-full spatial-nav-capsule border border-white/15 bg-white/[0.03] shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
             <button
-              onClick={() => setActiveCategory('growth-branding')}
-              className={`py-2.5 sm:py-3 px-5 sm:px-8 rounded-full text-xs sm:text-sm font-mono tracking-wider uppercase transition-all duration-300 cursor-pointer ${
-                activeCategory === 'growth-branding'
+              onClick={() => setActiveCategory('all')}
+              className={`py-2 sm:py-2.5 px-4 sm:px-6 rounded-full text-xs font-mono tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                activeCategory === 'all'
                   ? 'spatial-pill spatial-pill-amber text-black font-bold shadow-[0_0_20px_rgba(217,139,58,0.4)]'
                   : 'text-[#A1A1A1] hover:text-white'
               }`}
             >
-              GROWTH & BRANDING
+              ALL 5 PACKAGES
+            </button>
+
+            <button
+              onClick={() => setActiveCategory('retainers')}
+              className={`py-2 sm:py-2.5 px-4 sm:px-6 rounded-full text-xs font-mono tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                activeCategory === 'retainers'
+                  ? 'spatial-pill spatial-pill-amber text-black font-bold shadow-[0_0_20px_rgba(217,139,58,0.4)]'
+                  : 'text-[#A1A1A1] hover:text-white'
+              }`}
+            >
+              MONTHLY RETAINERS
             </button>
 
             <button
               onClick={() => setActiveCategory('web-dev')}
-              className={`py-2.5 sm:py-3 px-5 sm:px-8 rounded-full text-xs sm:text-sm font-mono tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+              className={`py-2 sm:py-2.5 px-4 sm:px-6 rounded-full text-xs font-mono tracking-wider uppercase transition-all duration-300 cursor-pointer ${
                 activeCategory === 'web-dev'
                   ? 'spatial-pill spatial-pill-amber text-black font-bold shadow-[0_0_20px_rgba(217,139,58,0.4)]'
                   : 'text-[#A1A1A1] hover:text-white'
               }`}
             >
-              WEB DESIGN & DEV
+              WEBSITE DEVELOPMENT
             </button>
           </div>
         </div>
 
-        {/* Pricing Cards Grid */}
+        {/* 5 Pricing Cards Grid */}
         <div
-          className={`grid gap-6 sm:gap-8 items-stretch ${
-            activeCategory === 'growth-branding'
-              ? 'grid-cols-1 md:grid-cols-2 xl:grid-cols-4'
-              : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto'
+          className={`grid gap-5 sm:gap-6 items-stretch ${
+            activeCategory === 'all'
+              ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'
+              : activeCategory === 'retainers'
+              ? 'grid-cols-1 md:grid-cols-2 xl:grid-cols-4 max-w-7xl mx-auto'
+              : 'grid-cols-1 max-w-md mx-auto'
           }`}
         >
           {currentPackages.map((pkg) => {
@@ -160,7 +162,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             return (
               <div
                 key={pkg.id}
-                className={`spatial-glass relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-500 group ${
+                className={`spatial-glass relative rounded-3xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-500 group ${
                   isPopular
                     ? 'border-[#D98B3A]/70 shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_35px_rgba(217,139,58,0.22)]'
                     : 'hover:border-white/25'
@@ -196,15 +198,15 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                   </div>
 
                   {/* Title & Subtitle */}
-                  <h3 className="font-headline font-bold text-xl sm:text-2xl text-white tracking-tight uppercase mb-1">
+                  <h3 className="font-headline font-bold text-lg sm:text-xl text-white tracking-tight uppercase mb-1">
                     {pkg.title}
                   </h3>
 
-                  <p className="text-xs text-[#A1A1A1] font-light mb-6">
+                  <p className="text-xs text-[#A1A1A1] font-light mb-6 min-h-[32px]">
                     {pkg.subtitle}
                   </p>
 
-                  {/* Prominent Pricing Block */}
+                  {/* Prominent Pricing Block (+10k updated in INR) */}
                   <div className="flex items-baseline mb-6">
                     <span className="font-headline font-bold text-3xl sm:text-4xl text-white tracking-tight">
                       {pkg.price}
@@ -275,7 +277,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
           })}
         </div>
 
-        {/* Custom Budget Inquiry Panel (Present in both references) */}
+        {/* Custom Budget Inquiry Panel */}
         <div className="spatial-glass rounded-3xl p-6 sm:p-8 lg:p-10 mt-14 max-w-5xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
           {/* Subtle Ambient Glow */}
           <div className="absolute right-0 top-0 w-80 h-80 bg-[#D98B3A]/10 rounded-full blur-[100px] pointer-events-none" />
@@ -289,7 +291,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             </div>
 
             <p className="text-xs sm:text-sm text-[#A1A1A1] font-light leading-relaxed">
-              Every channel is unique. Whether you need a different video volume, have a specific budget, or want a custom service blend, we will craft a tailor-made plan for you.
+              Every channel and brand is unique. Whether you need a different video volume, have a specific budget, or want a custom service blend, we will craft a tailor-made plan for you.
             </p>
           </div>
 

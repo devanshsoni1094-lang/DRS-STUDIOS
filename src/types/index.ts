@@ -80,18 +80,18 @@ export interface TargetAudience {
   recommendedServices: string[];
 }
 
-export type PricingCategory = 'growth-branding' | 'web-dev';
+export type PricingCategory = 'all' | 'retainers' | 'web-dev';
 
 export interface PricingPackageItem {
   id: string;
-  category: PricingCategory;
-  packageNumber: string; // e.g. "PACKAGE 01" or "PROJECT 01"
+  category: 'retainers' | 'web-dev';
+  packageNumber: string; // e.g. "PACKAGE 01"
   title: string;
   subtitle: string;
-  price: string; // e.g. "₹45K" or "₹18K – ₹35K"
+  price: string; // e.g. "₹55K", "₹32K", "₹25K", "₹28K", "₹30K"
   period: string; // e.g. "/ month" or "/ project"
   isPopular?: boolean;
-  iconType: 'sparkles' | 'youtube' | 'instagram' | 'linkedin' | 'globe' | 'zap' | 'code';
+  iconType: 'sparkles' | 'youtube' | 'instagram' | 'globe' | 'palette' | 'film' | 'zap' | 'code';
   deliverables: string[];
   workflowTitle?: string;
   workflowDetails: string[];
