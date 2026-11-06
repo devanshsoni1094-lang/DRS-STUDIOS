@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Shield, Activity, Terminal } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
 
 interface NavbarProps {
   onStartProject: () => void;
@@ -18,17 +18,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
   }, []);
 
   const navLinks = [
-    { label: 'SERVICES', href: '#services', code: '01' },
-    { label: 'OUR WORK', href: '#work', code: '02' },
-    { label: 'ABOUT', href: '#about', code: '03' },
-    { label: 'PROCESS', href: '#process', code: '04' },
-    { label: 'WHY DRS', href: '#why-us', code: '05' },
-    { label: 'CONTACT', href: '#contact', code: '06' },
+    { label: 'Home', href: '#' },
+    { label: 'Services', href: '#services' },
+    { label: 'Work', href: '#work' },
+    { label: 'About', href: '#about' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+    if (href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
@@ -37,121 +40,98 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-[#030303]/90 backdrop-blur-xl border-b border-[#1E1E24] py-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)]'
-            : 'bg-transparent py-5 border-b border-white/5'
-        }`}
-      >
-        {/* Top Technical Metadata Bar (Echoframe Reference Style) */}
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pb-2 mb-2 border-b border-white/[0.04] hidden md:flex items-center justify-between text-[10px] font-mono tracking-widest text-[#71717A]">
-          <div className="flex items-center gap-3">
-            <span className="text-[#FF9E2C] font-semibold tracking-widest">+ + +</span>
-            <span className="flex items-center gap-1.5 text-white/80">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF9E2C] animate-ping" />
-              SYSTEM: ONLINE
-            </span>
-            <span className="text-white/20">|</span>
-            <span className="uppercase text-[#A1A1A6]">DRS // CREATIVE INTELLIGENCE</span>
-          </div>
-
-          <div className="flex items-center gap-4 text-[#A1A1A6]">
-            <span>COORDINATE: 001 // 124</span>
-            <span className="text-white/20">|</span>
-            <span className="text-[#FF9E2C] font-mono">[STUDIO FLAGSHIP]</span>
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-          {/* Logo with proper official brandmark */}
-          <a
-            href="#"
-            className="group flex items-center gap-4 focus:outline-none"
-            aria-label="DRS STUDIOS Home"
-          >
-            <div className="relative flex items-center">
+      <header className="fixed top-0 left-0 right-0 z-50 pt-4 sm:pt-6 px-4 sm:px-6 pointer-events-none transition-all duration-500">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          
+          {/* Floating Spatial Glass Navbar Capsule */}
+          <div className="w-full pointer-events-auto spatial-nav-capsule rounded-full px-5 sm:px-7 py-3 flex items-center justify-between transition-all duration-300">
+            
+            {/* DRS STUDIOS Logo */}
+            <a
+              href="#"
+              onClick={(e) => handleNavClick(e, '#')}
+              className="group flex items-center gap-3 focus:outline-none"
+              aria-label="DRS STUDIOS Home"
+            >
               <img
                 src="/drs-logo.png"
                 alt="DRS STUDIOS"
-                className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-all duration-300 filter drop-shadow-[0_0_15px_rgba(255,158,44,0.35)] group-hover:drop-shadow-[0_0_25px_rgba(255,158,44,0.65)] group-hover:scale-[1.03]"
+                className="h-9 sm:h-11 w-auto object-contain transition-all duration-300 filter drop-shadow-[0_0_12px_rgba(217,139,58,0.35)] group-hover:scale-105"
               />
-            </div>
-          </a>
+            </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-7 text-xs font-mono tracking-[0.18em]">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-[#A1A1AA] hover:text-white transition-colors duration-200 relative py-1 uppercase flex items-center gap-1 group"
-              >
-                <span className="text-[#FF9E2C]/60 text-[9px] group-hover:text-[#FF9E2C] transition-colors">
-                  {link.code}
-                </span>
-                <span>{link.label}</span>
-                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#FF9E2C] transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#FF9E2C]"></span>
-              </a>
-            ))}
-          </nav>
-
-          {/* Right Action: Sci-Fi Pill CTA */}
-          <div className="hidden sm:flex items-center gap-4">
-            <button
-              onClick={onStartProject}
-              className="echo-pill hover:border-[#FF9E2C] text-white"
-            >
-              <span>START A PROJECT</span>
-              <span className="text-[#FF9E2C] font-bold">&gt;</span>
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2.5 rounded-full bg-[#0E0E12] border border-[#262626] text-white hover:border-[#FF9E2C]/70 transition-colors"
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5 text-[#FF9E2C]" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile Drawer Navigation */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#030303]/98 backdrop-blur-2xl lg:hidden pt-32 px-6 flex flex-col justify-between pb-10 animate-in fade-in duration-300">
-          <div className="space-y-6">
-            <div className="flex items-center justify-between pb-4 border-b border-[#1E1E24] text-[11px] font-mono text-[#71717A] tracking-wider uppercase">
-              <span className="text-[#FF9E2C] flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#FF9E2C] animate-pulse" />
-                NAVIGATION SYSTEM
-              </span>
-              <span>001 // 06</span>
-            </div>
-            <div className="flex flex-col space-y-3">
+            {/* Desktop Navigation Links */}
+            <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-xs tracking-wider font-medium text-[#A1A1A1]">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="font-extended text-lg font-light text-white/90 hover:text-[#FF9E2C] transition-colors flex items-center justify-between py-3 border-b border-[#141418]"
+                  className="hover:text-white transition-colors duration-200 relative py-1 text-xs tracking-widest uppercase group"
                 >
-                  <span className="tracking-wider">{link.label}</span>
-                  <span className="text-xs font-mono text-[#FF9E2C]">[ // {link.code} ]</span>
+                  <span>{link.label}</span>
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-[#D98B3A] to-[#C6A96C] transition-all duration-300 group-hover:w-full rounded-full shadow-[0_0_8px_#D98B3A]"></span>
+                </a>
+              ))}
+            </nav>
+
+            {/* Right Action: Spatial Pill CTA */}
+            <div className="hidden sm:flex items-center gap-4">
+              <button
+                onClick={onStartProject}
+                className="spatial-pill spatial-pill-amber py-2.5 px-6 text-[11px] font-semibold tracking-wider text-black rounded-full"
+              >
+                <span>START A PROJECT</span>
+                <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-full bg-white/5 border border-white/10 text-white hover:border-[#D98B3A]/60 transition-colors"
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5 text-[#D98B3A]" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Drawer Spatial Glass Navigation */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-[#050505]/95 backdrop-blur-3xl md:hidden pt-28 px-6 flex flex-col justify-between pb-10 animate-in fade-in duration-300">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between pb-4 border-b border-white/10 text-[11px] font-mono text-[#A1A1A1] uppercase tracking-widest">
+              <span className="flex items-center gap-2 text-[#D98B3A]">
+                <span className="w-2 h-2 rounded-full bg-[#D98B3A] animate-pulse" />
+                SPATIAL INTERFACE
+              </span>
+              <span>DRS STUDIOS</span>
+            </div>
+
+            <div className="flex flex-col space-y-3">
+              {navLinks.map((link, idx) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="font-headline text-2xl font-light text-white/90 hover:text-[#D98B3A] transition-colors flex items-center justify-between py-3 border-b border-white/5"
+                >
+                  <span>{link.label}</span>
+                  <span className="text-xs font-mono text-[#D98B3A]">0{idx + 1}</span>
                 </a>
               ))}
             </div>
           </div>
 
-          <div className="space-y-4 pt-6 border-t border-[#1E1E24]">
+          <div className="space-y-4 pt-6 border-t border-white/10">
             <img
               src="/drs-logo.png"
               alt="DRS STUDIOS"
-              className="h-10 w-auto object-contain mb-2 filter drop-shadow-[0_0_15px_rgba(255,158,44,0.3)]"
+              className="h-10 w-auto object-contain mb-2 filter drop-shadow-[0_0_15px_rgba(217,139,58,0.3)]"
             />
-            <p className="text-xs text-[#A1A1A6] font-mono">
+            <p className="text-xs text-[#A1A1A1] leading-relaxed">
               "Your Entire Digital World. One Creative Partner."
             </p>
             <button
@@ -159,10 +139,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
                 setMobileMenuOpen(false);
                 onStartProject();
               }}
-              className="w-full echo-pill echo-pill-primary py-4 text-center justify-center font-extended text-xs"
+              className="w-full spatial-pill spatial-pill-amber py-4 text-center justify-center font-bold text-xs"
             >
-              <span>INITIATE PROJECT</span>
-              <span className="font-bold">&gt;</span>
+              <span>START A PROJECT</span>
+              <ArrowUpRight className="w-4 h-4 ml-1 stroke-[2.5]" />
             </button>
           </div>
         </div>

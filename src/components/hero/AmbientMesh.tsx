@@ -32,90 +32,99 @@ export const AmbientMesh: React.FC = () => {
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Subtle atmospheric sci-fi dust particles
-    const particleCount = Math.min(Math.floor(width / 40), 40);
-    const particles = Array.from({ length: particleCount }, () => ({
+    // Floating subtle glass particles in 3D spatial depths
+    const particles = Array.from({ length: 35 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      radius: Math.random() * 1.5 + 0.5,
-      alpha: Math.random() * 0.5 + 0.1,
+      z: Math.random() * 2 + 0.5,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      radius: Math.random() * 2.5 + 1,
+      alpha: Math.random() * 0.4 + 0.15,
     }));
 
     let tick = 0;
 
     const render = () => {
-      tick += 0.006;
+      tick += 0.007;
       mouseX += (targetMouseX - mouseX) * 0.04;
       mouseY += (targetMouseY - mouseY) * 0.04;
 
       ctx.clearRect(0, 0, width, height);
 
-      // Deep void black background
-      ctx.fillStyle = '#030303';
+      // Deep obsidian & black spatial foundation
+      ctx.fillStyle = '#050505';
       ctx.fillRect(0, 0, width, height);
 
-      // 1. Center Sci-Fi warm amber/orange rim glow (Echoframe style)
+      // 1. Primary warm amber cinematic bloom
+      const bloomX = width * 0.5 + (mouseX - width * 0.5) * 0.12;
+      const bloomY = height * 0.42 + (mouseY - height * 0.5) * 0.12;
       const amberGlow = ctx.createRadialGradient(
-        width * 0.5 + (mouseX - width * 0.5) * 0.15,
-        height * 0.48 + (mouseY - height * 0.5) * 0.15,
-        15,
-        width * 0.5,
-        height * 0.48,
-        width * 0.42
+        bloomX,
+        bloomY,
+        30,
+        bloomX,
+        bloomY,
+        width * 0.55
       );
-      amberGlow.addColorStop(0, 'rgba(255, 158, 44, 0.12)');
-      amberGlow.addColorStop(0.35, 'rgba(255, 158, 44, 0.035)');
-      amberGlow.addColorStop(0.7, 'rgba(200, 120, 20, 0.01)');
-      amberGlow.addColorStop(1, 'rgba(3, 3, 3, 0)');
+      amberGlow.addColorStop(0, 'rgba(217, 139, 58, 0.22)');
+      amberGlow.addColorStop(0.35, 'rgba(198, 169, 108, 0.08)');
+      amberGlow.addColorStop(0.7, 'rgba(217, 139, 58, 0.02)');
+      amberGlow.addColorStop(1, 'rgba(5, 5, 5, 0)');
       ctx.fillStyle = amberGlow;
       ctx.fillRect(0, 0, width, height);
 
-      // 2. Secondary metallic cool specular reflection
-      const steelGlow = ctx.createRadialGradient(
-        width * 0.5,
-        height * 0.2,
-        10,
-        width * 0.5,
-        height * 0.2,
-        width * 0.6
+      // 2. Secondary soft champagne floating light orb
+      const champX = width * 0.3 + Math.sin(tick * 0.8) * 140;
+      const champY = height * 0.65 + Math.cos(tick * 0.8) * 90;
+      const champGlow = ctx.createRadialGradient(
+        champX,
+        champY,
+        20,
+        champX,
+        champY,
+        width * 0.4
       );
-      steelGlow.addColorStop(0, 'rgba(203, 213, 225, 0.04)');
-      steelGlow.addColorStop(1, 'rgba(3, 3, 3, 0)');
-      ctx.fillStyle = steelGlow;
+      champGlow.addColorStop(0, 'rgba(198, 169, 108, 0.1)');
+      champGlow.addColorStop(0.5, 'rgba(217, 139, 58, 0.025)');
+      champGlow.addColorStop(1, 'rgba(5, 5, 5, 0)');
+      ctx.fillStyle = champGlow;
       ctx.fillRect(0, 0, width, height);
 
-      // Draw subtle particles
+      // 3. Floating glass orbs / spatial particles
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
+        p.x += p.vx * p.z;
+        p.y += p.vy * p.z;
 
         if (p.x < 0) p.x = width;
         if (p.x > width) p.x = 0;
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
 
+        // Draw glass particle with specular highlight
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 175, 55, ${p.alpha * 0.6})`;
+        ctx.arc(p.x, p.y, p.radius * p.z, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 230, 190, ${p.alpha * 0.8})`;
+        ctx.shadowColor = 'rgba(217, 139, 58, 0.6)';
+        ctx.shadowBlur = 8;
         ctx.fill();
+        ctx.shadowBlur = 0;
 
-        // Connect near particles
+        // Delicate interconnecting light filaments
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 120) {
-            const lineAlpha = (1 - dist / 120) * 0.06;
+          if (dist < 110) {
+            const lineAlpha = (1 - dist / 110) * 0.08;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(255, 158, 44, ${lineAlpha})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `rgba(217, 139, 58, ${lineAlpha})`;
+            ctx.lineWidth = 0.6;
             ctx.stroke();
           }
         }
@@ -136,7 +145,7 @@ export const AmbientMesh: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-85"
+      className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-90"
       aria-hidden="true"
     />
   );

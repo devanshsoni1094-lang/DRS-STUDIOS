@@ -140,7 +140,7 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
         {/* Name & Business Name */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
-            <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A1A1A6] mb-2">
+            <label className="block text-xs font-mono uppercase tracking-wider text-[#A1A1A1] mb-2">
               Your Name *
             </label>
             <input
@@ -148,12 +148,12 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder="e.g. Vikramaditya Sharma"
-              className={`w-full px-4 py-3.5 rounded-xl bg-[#0B0B0F] border text-white font-mono text-xs focus:outline-none transition-colors ${
-                errors.name ? 'border-red-500/80 focus:border-red-500' : 'border-[#1E1E24] focus:border-[#FF9E2C]'
+              className={`w-full px-4 py-3.5 rounded-2xl bg-white/[0.04] border text-white text-sm focus:outline-none transition-colors backdrop-blur-md ${
+                errors.name ? 'border-red-500/80 focus:border-red-500' : 'border-white/10 focus:border-[#D98B3A]'
               }`}
             />
             {errors.name && (
-              <p className="mt-1.5 text-[10px] font-mono text-red-400 flex items-center gap-1">
+              <p className="mt-1.5 text-[11px] text-red-400 flex items-center gap-1 font-mono">
                 <AlertCircle className="w-3 h-3" />
                 {errors.name}
               </p>
@@ -161,7 +161,7 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
           </div>
 
           <div>
-            <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A1A1A6] mb-2">
+            <label className="block text-xs font-mono uppercase tracking-wider text-[#A1A1A1] mb-2">
               Business / Brand Name *
             </label>
             <input
@@ -169,12 +169,12 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
               value={formData.businessName}
               onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
               placeholder="e.g. Aurelia Fine Goods"
-              className={`w-full px-4 py-3.5 rounded-xl bg-[#0B0B0F] border text-white font-mono text-xs focus:outline-none transition-colors ${
-                errors.businessName ? 'border-red-500/80 focus:border-red-500' : 'border-[#1E1E24] focus:border-[#FF9E2C]'
+              className={`w-full px-4 py-3.5 rounded-2xl bg-white/[0.04] border text-white text-sm focus:outline-none transition-colors backdrop-blur-md ${
+                errors.businessName ? 'border-red-500/80 focus:border-red-500' : 'border-white/10 focus:border-[#D98B3A]'
               }`}
             />
             {errors.businessName && (
-              <p className="mt-1.5 text-[10px] font-mono text-red-400 flex items-center gap-1">
+              <p className="mt-1.5 text-[11px] text-red-400 flex items-center gap-1 font-mono">
                 <AlertCircle className="w-3 h-3" />
                 {errors.businessName}
               </p>
@@ -185,7 +185,7 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
         {/* Email & WhatsApp */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
-            <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A1A1A6] mb-2">
+            <label className="block text-xs font-mono uppercase tracking-wider text-[#A1A1A1] mb-2">
               Email Address *
             </label>
             <input
@@ -193,12 +193,12 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="founder@company.com"
-              className={`w-full px-4 py-3.5 rounded-xl bg-[#0B0B0F] border text-white font-mono text-xs focus:outline-none transition-colors ${
-                errors.email ? 'border-red-500/80 focus:border-red-500' : 'border-[#1E1E24] focus:border-[#FF9E2C]'
+              className={`w-full px-4 py-3.5 rounded-2xl bg-white/[0.04] border text-white text-sm focus:outline-none transition-colors backdrop-blur-md ${
+                errors.email ? 'border-red-500/80 focus:border-red-500' : 'border-white/10 focus:border-[#D98B3A]'
               }`}
             />
             {errors.email && (
-              <p className="mt-1.5 text-[10px] font-mono text-red-400 flex items-center gap-1">
+              <p className="mt-1.5 text-[11px] text-red-400 flex items-center gap-1 font-mono">
                 <AlertCircle className="w-3 h-3" />
                 {errors.email}
               </p>
@@ -206,7 +206,7 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
           </div>
 
           <div>
-            <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A1A1A6] mb-2">
+            <label className="block text-xs font-mono uppercase tracking-wider text-[#A1A1A1] mb-2">
               WhatsApp Number (with country code) *
             </label>
             <input
@@ -214,12 +214,12 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
               value={formData.whatsapp}
               onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
               placeholder="+91 98765 43210"
-              className={`w-full px-4 py-3.5 rounded-xl bg-[#0B0B0F] border text-white font-mono text-xs focus:outline-none transition-colors ${
-                errors.whatsapp ? 'border-red-500/80 focus:border-red-500' : 'border-[#1E1E24] focus:border-[#FF9E2C]'
+              className={`w-full px-4 py-3.5 rounded-2xl bg-white/[0.04] border text-white text-sm focus:outline-none transition-colors backdrop-blur-md ${
+                errors.whatsapp ? 'border-red-500/80 focus:border-red-500' : 'border-white/10 focus:border-[#D98B3A]'
               }`}
             />
             {errors.whatsapp && (
-              <p className="mt-1.5 text-[10px] font-mono text-red-400 flex items-center gap-1">
+              <p className="mt-1.5 text-[11px] text-red-400 flex items-center gap-1 font-mono">
                 <AlertCircle className="w-3 h-3" />
                 {errors.whatsapp}
               </p>
@@ -229,16 +229,16 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
 
         {/* Business Type */}
         <div>
-          <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A1A1A6] mb-2">
+          <label className="block text-xs font-mono uppercase tracking-wider text-[#A1A1A1] mb-2">
             Business Classification / Sector
           </label>
           <select
             value={formData.businessType}
             onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
-            className="w-full px-4 py-3.5 rounded-xl bg-[#0B0B0F] border border-[#1E1E24] text-white font-mono text-xs focus:outline-none focus:border-[#FF9E2C]"
+            className="w-full px-4 py-3.5 rounded-2xl bg-[#0A0A0E] border border-white/10 text-white text-sm focus:outline-none focus:border-[#D98B3A] backdrop-blur-md"
           >
             {businessTypes.map((type) => (
-              <option key={type} value={type} className="bg-[#070709] text-white">
+              <option key={type} value={type} className="bg-[#0A0A0E] text-white">
                 {type}
               </option>
             ))}
@@ -248,10 +248,10 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
         {/* Interested Services Multi-Select */}
         <div>
           <div className="flex items-center justify-between mb-2">
-            <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A1A1A6]">
+            <label className="block text-xs font-mono uppercase tracking-wider text-[#A1A1A1]">
               Interested Divisions (Select All Applicable) *
             </label>
-            <span className="text-[10px] font-mono text-[#FF9E2C]">
+            <span className="text-[11px] font-mono text-[#D98B3A]">
               {formData.services.length} Selected
             </span>
           </div>
@@ -264,20 +264,20 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
                   type="button"
                   key={svc}
                   onClick={() => toggleService(svc)}
-                  className={`px-3 py-1.5 rounded-full text-[11px] font-mono transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
+                  className={`px-4 py-2 rounded-full text-xs font-mono transition-all duration-200 flex items-center gap-2 cursor-pointer ${
                     isSelected
-                      ? 'bg-[#FF9E2C] text-black font-bold shadow-[0_0_15px_rgba(255,158,44,0.3)]'
-                      : 'bg-[#0E0E14] text-[#A1A1A6] border border-[#1E1E24] hover:text-white hover:border-[#383844]'
+                      ? 'spatial-pill spatial-pill-amber text-black font-semibold'
+                      : 'spatial-pill text-[#A1A1A1] hover:text-white'
                   }`}
                 >
-                  {isSelected && <Check className="w-3 h-3 text-black" />}
+                  {isSelected && <Check className="w-3.5 h-3.5 text-black stroke-[3]" />}
                   <span>{svc}</span>
                 </button>
               );
             })}
           </div>
           {errors.services && (
-            <p className="mt-1.5 text-[10px] font-mono text-red-400 flex items-center gap-1">
+            <p className="mt-1.5 text-[11px] text-red-400 flex items-center gap-1 font-mono">
               <AlertCircle className="w-3 h-3" />
               {errors.services}
             </p>
@@ -286,16 +286,16 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
 
         {/* Estimated Budget */}
         <div>
-          <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A1A1A6] mb-2">
-            Investment Range / Monthly Sprint Budget
+          <label className="block text-xs font-mono uppercase tracking-wider text-[#A1A1A1] mb-2">
+            Estimated Budget / Investment Range
           </label>
           <select
             value={formData.estimatedBudget}
             onChange={(e) => setFormData({ ...formData, estimatedBudget: e.target.value })}
-            className="w-full px-4 py-3.5 rounded-xl bg-[#0B0B0F] border border-[#1E1E24] text-white font-mono text-xs focus:outline-none focus:border-[#FF9E2C]"
+            className="w-full px-4 py-3.5 rounded-2xl bg-[#0A0A0E] border border-white/10 text-white text-sm focus:outline-none focus:border-[#D98B3A] backdrop-blur-md"
           >
             {budgetTiers.map((tier) => (
-              <option key={tier} value={tier} className="bg-[#070709] text-white">
+              <option key={tier} value={tier} className="bg-[#0A0A0E] text-white">
                 {tier}
               </option>
             ))}
@@ -304,20 +304,20 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
 
         {/* Project Description */}
         <div>
-          <label className="block text-[11px] font-mono uppercase tracking-wider text-[#A1A1A6] mb-2">
-            Project Overview & Objectives *
+          <label className="block text-xs font-mono uppercase tracking-wider text-[#A1A1A1] mb-2">
+            Project Overview & Goals *
           </label>
           <textarea
             rows={4}
             value={formData.description}
             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
             placeholder="Tell us about your brand, key targets, existing challenges, timeline, or links to your current website/social profiles..."
-            className={`w-full px-4 py-3.5 rounded-xl bg-[#0B0B0F] border text-white font-mono text-xs focus:outline-none transition-colors ${
-              errors.description ? 'border-red-500/80 focus:border-red-500' : 'border-[#1E1E24] focus:border-[#FF9E2C]'
+            className={`w-full px-4 py-3.5 rounded-2xl bg-white/[0.04] border text-white text-sm focus:outline-none transition-colors backdrop-blur-md ${
+              errors.description ? 'border-red-500/80 focus:border-red-500' : 'border-white/10 focus:border-[#D98B3A]'
             }`}
           />
           {errors.description && (
-            <p className="mt-1.5 text-[10px] font-mono text-red-400 flex items-center gap-1">
+            <p className="mt-1.5 text-[11px] text-red-400 flex items-center gap-1 font-mono">
               <AlertCircle className="w-3 h-3" />
               {errors.description}
             </p>
@@ -326,22 +326,22 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
 
         {/* Submit Button */}
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[10px] font-mono text-[#71717A] flex items-center gap-1.5">
-            <span className="text-[#FF9E2C]">+</span>
-            <span>Encrypted protocol. Reviewed directly by executive leadership.</span>
+          <p className="text-[11px] text-[#A1A1A1] flex items-center gap-1.5 font-mono">
+            <Sparkles className="w-3.5 h-3.5 text-[#D98B3A]" />
+            <span>Strict privacy. Direct review by executive leadership.</span>
           </p>
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full sm:w-auto echo-pill echo-pill-primary py-4 px-8 text-center justify-center font-extended text-xs"
+            className="w-full sm:w-auto spatial-pill spatial-pill-amber py-4 px-10 text-xs font-bold text-black tracking-wider uppercase"
           >
             {isSubmitting ? (
               <span>TRANSMITTING BRIEF...</span>
             ) : (
               <>
                 <span>SEND PROJECT INQUIRY</span>
-                <span className="font-bold">&gt;</span>
+                <Send className="w-4 h-4 ml-1" />
               </>
             )}
           </button>

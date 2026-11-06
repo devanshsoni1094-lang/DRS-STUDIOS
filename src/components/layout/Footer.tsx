@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, ArrowUp, Mail, MessageCircle, MapPin, Sparkles, Terminal } from 'lucide-react';
+import { ArrowUpRight, ArrowUp, Mail, MessageCircle, MapPin, Sparkles } from 'lucide-react';
 import { companyIdentity } from '../../data/company';
 
 interface FooterProps {
@@ -12,60 +12,59 @@ export const Footer: React.FC<FooterProps> = ({ onStartProject }) => {
   };
 
   return (
-    <footer className="bg-[#020203] border-t border-[#1E1E24] relative overflow-hidden pt-20 pb-12">
-      {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-[#FF9E2C]/5 blur-3xl pointer-events-none"></div>
+    <footer className="bg-[#050505] border-t border-white/10 relative overflow-hidden pt-20 pb-12">
+      {/* Background warm amber glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-[#D98B3A]/10 blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
-        {/* Top Sci-Fi Callout Banner */}
-        <div className="p-8 sm:p-12 rounded-2xl bg-[#08080C] border border-[#1E1E24] shadow-[0_0_40px_rgba(0,0,0,0.8)] mb-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF9E2C]/10 rounded-full blur-3xl pointer-events-none" />
-
+        {/* Top Spatial Glass Callout Banner */}
+        <div className="spatial-glass rounded-3xl p-8 sm:p-12 mb-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden">
           <div className="max-w-2xl space-y-3 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#121218] border border-[#262626] text-[10px] font-mono uppercase tracking-widest text-[#FF9E2C]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF9E2C] animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full spatial-nav-capsule text-[11px] font-mono uppercase tracking-widest text-[#D98B3A]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D98B3A] animate-pulse"></span>
               {companyIdentity.contact.status}
             </div>
-            <h3 className="font-extended text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wide text-white">
+            <h3 className="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
               Ready to elevate your digital presence?
             </h3>
-            <p className="text-xs sm:text-sm text-[#A1A1A6] font-mono leading-relaxed">
-              Consolidate your web engineering, social media growth, and generative AI production under one creative partner.
+            <p className="text-sm text-[#A1A1A1] leading-relaxed">
+              Partner with DRS STUDIOS for comprehensive strategy, high-end web development, social management, and creative production.
             </p>
           </div>
 
           <button
             onClick={onStartProject}
-            className="echo-pill echo-pill-primary py-4 px-8 self-start lg:self-auto shrink-0 shadow-[0_0_30px_rgba(255,158,44,0.4)]"
+            className="spatial-pill spatial-pill-amber py-4 px-8 text-xs font-bold text-black uppercase tracking-wider self-start lg:self-auto shrink-0 shadow-[0_0_30px_rgba(217,139,58,0.35)]"
           >
             <span>START A PROJECT</span>
-            <span className="font-bold">&gt;</span>
+            <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
           </button>
         </div>
 
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-[#1E1E24]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+          
           {/* Col 1: Identity & Official Logo (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="flex items-center gap-3">
               <img
                 src="/drs-logo.png"
                 alt="DRS STUDIOS"
-                className="h-12 sm:h-14 w-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,158,44,0.35)]"
+                className="h-12 sm:h-14 w-auto object-contain filter drop-shadow-[0_0_15px_rgba(217,139,58,0.35)]"
               />
             </div>
-            <p className="text-xs text-[#A1A1A6] font-mono leading-relaxed pr-6">
+            <p className="text-xs text-[#A1A1A1] leading-relaxed pr-6">
               {companyIdentity.positioning}
             </p>
-            <div className="space-y-2 pt-2 text-xs font-mono text-[#71717A]">
+            <div className="space-y-2 pt-2 text-xs text-[#A1A1A1]">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#FF9E2C]" />
+                <MapPin className="w-3.5 h-3.5 text-[#D98B3A]" />
                 <span>{companyIdentity.contact.location}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#FF9E2C]" />
-                <a href={`mailto:${companyIdentity.contact.email}`} className="text-[#A1A1A6] hover:text-white transition-colors">
+                <Mail className="w-3.5 h-3.5 text-[#D98B3A]" />
+                <a href={`mailto:${companyIdentity.contact.email}`} className="hover:text-white transition-colors">
                   {companyIdentity.contact.email}
                 </a>
               </div>
@@ -74,33 +73,33 @@ export const Footer: React.FC<FooterProps> = ({ onStartProject }) => {
 
           {/* Col 2: Services (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#FF9E2C] font-semibold">
-              // DIVISIONS
+            <h4 className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-[#C6A96C]">
+              Services
             </h4>
-            <ul className="space-y-2.5 text-xs font-mono text-[#A1A1A6]">
+            <ul className="space-y-2.5 text-xs text-[#A1A1A1]">
               <li>
-                <a href="#services" className="hover:text-white transition-colors flex items-center gap-2">
-                  <span className="text-[#FF9E2C]/50 text-[10px]">01</span> YouTube Management
+                <a href="#services" className="hover:text-white transition-colors">
+                  01. YouTube Management
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors flex items-center gap-2">
-                  <span className="text-[#FF9E2C]/50 text-[10px]">02</span> Instagram Management
+                <a href="#services" className="hover:text-white transition-colors">
+                  02. Instagram Management
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors flex items-center gap-2">
-                  <span className="text-[#FF9E2C]/50 text-[10px]">03</span> Website Development
+                <a href="#services" className="hover:text-white transition-colors">
+                  03. Website Development
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors flex items-center gap-2">
-                  <span className="text-[#FF9E2C]/50 text-[10px]">04</span> Creative Production Studio
+                <a href="#services" className="hover:text-white transition-colors">
+                  04. Creative Production Studio
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors flex items-center gap-2">
-                  <span className="text-[#FF9E2C]/50 text-[10px]">05</span> Complete Digital Management
+                <a href="#services" className="hover:text-white transition-colors">
+                  05. Complete Digital Management
                 </a>
               </li>
             </ul>
@@ -108,39 +107,39 @@ export const Footer: React.FC<FooterProps> = ({ onStartProject }) => {
 
           {/* Col 3: Navigation (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#FF9E2C] font-semibold">
-              // ARCHITECTURE
+            <h4 className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-[#C6A96C]">
+              Explore
             </h4>
-            <ul className="space-y-2.5 text-xs font-mono text-[#A1A1A6]">
+            <ul className="space-y-2.5 text-xs text-[#A1A1A1]">
               <li>
-                <a href="#about" className="hover:text-white transition-colors">About Studio</a>
+                <a href="#about" className="hover:text-white transition-colors">About Us</a>
               </li>
               <li>
                 <a href="#work" className="hover:text-white transition-colors">Our Work</a>
               </li>
               <li>
-                <a href="#process" className="hover:text-white transition-colors">Process Flow</a>
+                <a href="#process" className="hover:text-white transition-colors">Process</a>
               </li>
               <li>
-                <a href="#why-us" className="hover:text-white transition-colors">Why DRS</a>
+                <a href="#why-us" className="hover:text-white transition-colors">Why DRS Studios</a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition-colors">Brief Inquiry</a>
+                <a href="#contact" className="hover:text-white transition-colors">Contact</a>
               </li>
             </ul>
           </div>
 
           {/* Col 4: Channels & Social (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#FF9E2C] font-semibold">
-              // CONNECT
+            <h4 className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-[#C6A96C]">
+              Connect
             </h4>
-            <div className="space-y-2 text-xs font-mono">
+            <div className="space-y-2.5 text-xs">
               <a
                 href={companyIdentity.contact.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="block p-2.5 rounded-sm bg-[#0A0A0D] border border-[#1E1E24] hover:border-[#FF9E2C]/40 text-[#A1A1A6] hover:text-white transition-colors"
+                className="block p-3 rounded-xl spatial-glass hover:border-[#D98B3A]/50 text-[#A1A1A1] hover:text-white transition-colors"
               >
                 Instagram &rarr;
               </a>
@@ -148,7 +147,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartProject }) => {
                 href={companyIdentity.contact.youtube}
                 target="_blank"
                 rel="noreferrer"
-                className="block p-2.5 rounded-sm bg-[#0A0A0D] border border-[#1E1E24] hover:border-[#FF9E2C]/40 text-[#A1A1A6] hover:text-white transition-colors"
+                className="block p-3 rounded-xl spatial-glass hover:border-[#D98B3A]/50 text-[#A1A1A1] hover:text-white transition-colors"
               >
                 YouTube &rarr;
               </a>
@@ -156,7 +155,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartProject }) => {
                 href={`https://wa.me/${companyIdentity.contact.whatsapp.replace('+', '')}`}
                 target="_blank"
                 rel="noreferrer"
-                className="block p-2.5 rounded-sm bg-[#0A0A0D] border border-[#1E1E24] hover:border-[#25D366]/40 text-[#A1A1A6] hover:text-white transition-colors"
+                className="block p-3 rounded-xl spatial-glass hover:border-[#25D366]/50 text-[#A1A1A1] hover:text-white transition-colors"
               >
                 WhatsApp &rarr;
               </a>
@@ -165,21 +164,21 @@ export const Footer: React.FC<FooterProps> = ({ onStartProject }) => {
         </div>
 
         {/* Footer Statement and Copyright */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-[11px] font-mono text-[#71717A]">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-[#A1A1A1]">
           <div className="flex items-center gap-2">
-            <span className="text-[#FF9E2C] font-bold">+ + +</span>
-            <p className="uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-[#D98B3A]" />
+            <p className="font-headline tracking-wide uppercase text-white/90">
               DRS STUDIOS — YOUR ENTIRE DIGITAL WORLD. ONE CREATIVE PARTNER.
             </p>
           </div>
           <div className="flex items-center gap-6">
-            <span>© {new Date().getFullYear()} DRS STUDIOS. ALL RIGHTS RESERVED.</span>
+            <span>© {new Date().getFullYear()} DRS STUDIOS. All rights reserved.</span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-full bg-[#0D0D12] border border-[#1E1E24] hover:border-[#FF9E2C]/50 text-white transition-colors cursor-pointer"
+              className="p-2.5 rounded-full spatial-nav-capsule hover:border-[#D98B3A]/60 text-white transition-colors cursor-pointer"
               aria-label="Back to top"
             >
-              <ArrowUp className="w-4 h-4 text-[#FF9E2C]" />
+              <ArrowUp className="w-4 h-4 text-[#D98B3A]" />
             </button>
           </div>
         </div>
