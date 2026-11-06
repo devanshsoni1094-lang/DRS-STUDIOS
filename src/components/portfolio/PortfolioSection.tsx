@@ -15,6 +15,17 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   const [activeCategory, setActiveCategory] = useState<PortfolioCategory>('All');
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
   const [coverflowIndex, setCoverflowIndex] = useState(2); // Center active card
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+
+  React.useEffect(() => {
+    const checkWidth = () => {
+      setIsMobileScreen(window.innerWidth < 640);
+    };
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+    return () => window.removeEventListener('resize', checkWidth);
+  }, []);
 
   const filteredProjects = useMemo(() => {
     if (activeCategory === 'All') return portfolioData;
@@ -27,6 +38,21 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
   const prevCoverflow = () => {
     setCoverflowIndex((prev) => (prev - 1 + portfolioData.length) % portfolioData.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    if (diff > 40) {
+      prevCoverflow();
+    } else if (diff < -40) {
+      nextCoverflow();
+    }
+    setTouchStartX(null);
   };
 
   return (
@@ -68,22 +94,25 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             <span>CARD 0{coverflowIndex + 1} OF 0{portfolioData.length}</span>
           </div>
 
-          {/* 3D Perspective Stage */}
-          <div className="relative h-[340px] sm:h-[420px] flex items-center justify-center perspective-container overflow-hidden py-4">
+          {/* 3D Perspective Stage with Touch Swiping */}
+          <div
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            className="relative h-[320px] sm:h-[380px] md:h-[420px] flex items-center justify-center perspective-container overflow-hidden py-4 select-none touch-pan-y"
+          >
             {portfolioData.map((project, idx) => {
               // Calculate spatial distance from center active card
               const offset = idx - coverflowIndex;
               const isCenter = offset === 0;
               const isAdjacent = Math.abs(offset) === 1;
-              const isFar = Math.abs(offset) === 2;
 
-              if (Math.abs(offset) > 2) return null; // Only render visible spatial cards
+              if (Math.abs(offset) > (isMobileScreen ? 1 : 2)) return null; // Show only adjacent cards on mobile for zero clipping
 
-              const translateX = offset * 220; // horizontal separation
-              const translateZ = -Math.abs(offset) * 140; // spatial depth
-              const rotateY = offset * -28; // 3D rotation angle
-              const scale = isCenter ? 1.08 : isAdjacent ? 0.88 : 0.72;
-              const opacity = isCenter ? 1 : isAdjacent ? 0.65 : 0.3;
+              const translateX = offset * (isMobileScreen ? 130 : 210); // horizontal separation
+              const translateZ = -Math.abs(offset) * (isMobileScreen ? 70 : 140); // spatial depth
+              const rotateY = offset * (isMobileScreen ? -20 : -28); // 3D rotation angle
+              const scale = isCenter ? 1.05 : isAdjacent ? (isMobileScreen ? 0.85 : 0.88) : 0.72;
+              const opacity = isCenter ? 1 : isAdjacent ? (isMobileScreen ? 0.5 : 0.65) : 0.3;
 
               return (
                 <div
@@ -97,7 +126,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                     zIndex: 20 - Math.abs(offset) * 5,
                     opacity: opacity,
                   }}
-                  className="absolute w-[240px] sm:w-[290px] h-[300px] sm:h-[360px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-700 ease-out border border-white/20 bg-[#0C0C10] shadow-[0_25px_60px_rgba(0,0,0,0.85)] group select-none"
+                  className="absolute w-[210px] sm:w-[260px] md:w-[290px] h-[280px] sm:h-[330px] md:h-[360px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-700 ease-out border border-white/20 bg-[#0C0C10] shadow-[0_25px_60px_rgba(0,0,0,0.85)] group select-none"
                 >
                   <img
                     src={project.heroImage}
@@ -165,7 +194,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
         </div>
 
         {/* Filter Categories Pill Row */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 no-scrollbar scroll-smooth">
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 no-scrollbar touch-scroll scroll-smooth px-1">
           {portfolioCategories.map((cat) => {
             const isActive = activeCategory === cat;
             return (

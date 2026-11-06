@@ -34,7 +34,7 @@ export const TargetAudienceSection: React.FC<TargetAudienceSectionProps> = ({
           {targetAudiences.map((audience) => (
             <div
               key={audience.id}
-              className="spatial-glass rounded-3xl p-8 hover:border-[#D98B3A]/60 transition-all duration-300 flex flex-col justify-between"
+              className="spatial-glass rounded-3xl p-6 sm:p-8 hover:border-[#D98B3A]/60 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">

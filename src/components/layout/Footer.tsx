@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartProject }) => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Top Spatial Glass Callout Banner */}
-        <div className="spatial-glass rounded-3xl p-8 sm:p-12 mb-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden">
+        <div className="spatial-glass rounded-3xl p-6 sm:p-10 lg:p-12 mb-12 sm:mb-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8 relative overflow-hidden">
           <div className="max-w-2xl space-y-3 relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full spatial-nav-capsule text-[11px] font-mono uppercase tracking-widest text-[#D98B3A]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D98B3A] animate-pulse"></span>
@@ -28,14 +28,14 @@ export const Footer: React.FC<FooterProps> = ({ onStartProject }) => {
             <h3 className="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
               Ready to elevate your digital presence?
             </h3>
-            <p className="text-sm text-[#A1A1A1] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#A1A1A1] leading-relaxed">
               Partner with DRS STUDIOS for comprehensive strategy, high-end web development, social management, and creative production.
             </p>
           </div>
 
           <button
             onClick={onStartProject}
-            className="spatial-pill spatial-pill-amber py-4 px-8 text-xs font-bold text-black uppercase tracking-wider self-start lg:self-auto shrink-0 shadow-[0_0_30px_rgba(217,139,58,0.35)]"
+            className="w-full sm:w-auto spatial-pill spatial-pill-amber py-3.5 sm:py-4 px-8 text-xs font-bold text-black uppercase tracking-wider self-start lg:self-auto shrink-0 shadow-[0_0_30px_rgba(217,139,58,0.35)] justify-center"
           >
             <span>START A PROJECT</span>
             <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
@@ -43,27 +43,27 @@ export const Footer: React.FC<FooterProps> = ({ onStartProject }) => {
         </div>
 
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12 sm:pb-16 border-b border-white/10">
           
           {/* Col 1: Identity & Official Logo (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-5 sm:space-y-6">
             <div className="flex items-center gap-3">
               <img
                 src="/drs-logo.png"
                 alt="DRS STUDIOS"
-                className="h-12 sm:h-14 w-auto object-contain filter drop-shadow-[0_0_15px_rgba(217,139,58,0.35)]"
+                className="h-9 sm:h-12 md:h-14 w-auto object-contain filter drop-shadow-[0_0_15px_rgba(217,139,58,0.35)]"
               />
             </div>
-            <p className="text-xs text-[#A1A1A1] leading-relaxed pr-6">
+            <p className="text-xs text-[#A1A1A1] leading-relaxed pr-2 sm:pr-6">
               {companyIdentity.positioning}
             </p>
             <div className="space-y-2 pt-2 text-xs text-[#A1A1A1]">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#D98B3A]" />
+                <MapPin className="w-3.5 h-3.5 text-[#D98B3A] shrink-0" />
                 <span>{companyIdentity.contact.location}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#D98B3A]" />
+                <Mail className="w-3.5 h-3.5 text-[#D98B3A] shrink-0" />
                 <a href={`mailto:${companyIdentity.contact.email}`} className="hover:text-white transition-colors">
                   {companyIdentity.contact.email}
                 </a>
@@ -164,18 +164,18 @@ export const Footer: React.FC<FooterProps> = ({ onStartProject }) => {
         </div>
 
         {/* Footer Statement and Copyright */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-[#A1A1A1]">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#D98B3A]" />
-            <p className="font-headline tracking-wide uppercase text-white/90">
+        <div className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-xs text-[#A1A1A1] text-center md:text-left">
+          <div className="flex items-center gap-2 justify-center md:justify-start">
+            <Sparkles className="w-3.5 h-3.5 text-[#D98B3A] shrink-0" />
+            <p className="font-headline tracking-wide uppercase text-white/90 text-[11px] sm:text-xs">
               DRS STUDIOS — YOUR ENTIRE DIGITAL WORLD. ONE CREATIVE PARTNER.
             </p>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-[11px] sm:text-xs">
             <span>© {new Date().getFullYear()} DRS STUDIOS. All rights reserved.</span>
             <button
               onClick={scrollToTop}
-              className="p-2.5 rounded-full spatial-nav-capsule hover:border-[#D98B3A]/60 text-white transition-colors cursor-pointer"
+              className="p-2 sm:p-2.5 rounded-full spatial-nav-capsule hover:border-[#D98B3A]/60 text-white transition-colors cursor-pointer"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4 text-[#D98B3A]" />

@@ -107,7 +107,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           </div>
 
           {/* Right Column: Spatial Glass Form Container (7 cols) */}
-          <div className="lg:col-span-7 spatial-glass rounded-3xl p-8 sm:p-10 lg:p-12">
+          <div className="lg:col-span-7 spatial-glass rounded-3xl p-5 sm:p-10 lg:p-12">
             <div className="mb-8 pb-6 border-b border-white/10">
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#D98B3A] block mb-1">
                 PROJECT INTAKE

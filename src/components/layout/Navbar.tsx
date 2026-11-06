@@ -40,23 +40,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 pt-5 sm:pt-6 px-4 sm:px-6 pointer-events-none transition-all duration-500">
+      <header className="fixed top-0 left-0 right-0 z-50 pt-3 sm:pt-6 px-3 sm:px-6 pointer-events-none transition-all duration-500">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           
           {/* Floating Spatial Glass Navbar Capsule */}
-          <div className="w-full pointer-events-auto spatial-nav-capsule rounded-full px-5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between transition-all duration-300">
+          <div className="w-full pointer-events-auto spatial-nav-capsule rounded-full px-4 sm:px-8 py-2.5 sm:py-3.5 flex items-center justify-between transition-all duration-300 shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
             
             {/* DRS STUDIOS Logo */}
             <a
               href="#"
               onClick={(e) => handleNavClick(e, '#')}
-              className="group flex items-center gap-3 focus:outline-none"
+              className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none"
               aria-label="DRS STUDIOS Home"
             >
               <img
                 src="/drs-logo.png"
                 alt="DRS STUDIOS"
-                className="h-8 sm:h-10 w-auto object-contain transition-all duration-300 filter drop-shadow-[0_0_12px_rgba(217,139,58,0.35)] group-hover:scale-105"
+                className="h-7 sm:h-9 md:h-10 w-auto object-contain transition-all duration-300 filter drop-shadow-[0_0_12px_rgba(217,139,58,0.35)] group-hover:scale-105"
               />
             </a>
 
@@ -100,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
 
       {/* Mobile Drawer Spatial Glass Navigation */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#050505]/95 backdrop-blur-3xl md:hidden pt-28 px-6 flex flex-col justify-between pb-10 animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-40 bg-[#050505]/95 backdrop-blur-3xl md:hidden pt-24 px-6 flex flex-col justify-between pb-8 animate-in fade-in duration-300 overflow-y-auto touch-scroll">
           <div className="space-y-6">
             <div className="flex items-center justify-between pb-4 border-b border-white/10 text-[11px] font-mono text-[#A1A1A1] uppercase tracking-widest">
               <span className="flex items-center gap-2 text-[#D98B3A]">

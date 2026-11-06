@@ -265,7 +265,7 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
                   type="button"
                   key={svc}
                   onClick={() => toggleService(svc)}
-                  className={`px-4 py-2 rounded-full text-xs font-mono transition-all duration-200 flex items-center gap-2 cursor-pointer ${
+                  className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono transition-all duration-200 flex items-center gap-1.5 sm:gap-2 cursor-pointer ${
                     isSelected
                       ? 'spatial-pill spatial-pill-amber text-black font-semibold'
                       : 'spatial-pill text-[#A1A1A1] hover:text-white'

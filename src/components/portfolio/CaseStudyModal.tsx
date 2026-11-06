@@ -24,7 +24,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
       />
 
       {/* Modal Dialog */}
-      <div className="relative z-10 w-full max-w-5xl max-h-[92vh] overflow-y-auto spatial-glass rounded-3xl p-6 sm:p-10 lg:p-12 text-white shadow-[0_0_90px_rgba(0,0,0,0.95)]">
+      <div className="relative z-10 w-full max-w-5xl max-h-[92vh] overflow-y-auto touch-scroll spatial-glass rounded-3xl p-5 sm:p-10 lg:p-12 text-white shadow-[0_0_90px_rgba(0,0,0,0.95)]">
         {/* Close Button */}
         <button
           onClick={onClose}

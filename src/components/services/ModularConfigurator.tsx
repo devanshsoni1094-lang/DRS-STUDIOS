@@ -73,7 +73,7 @@ export const ModularConfigurator: React.FC<ModularConfiguratorProps> = ({
   };
 
   return (
-    <div className="spatial-glass rounded-3xl p-6 sm:p-10 lg:p-14 my-14 sm:my-18 relative overflow-hidden">
+    <div className="spatial-glass rounded-3xl p-5 sm:p-10 lg:p-14 my-10 sm:my-16 lg:my-20 relative overflow-hidden">
       {/* Background Amber Blooms */}
       <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-[#D98B3A]/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute -left-20 -top-20 w-80 h-80 bg-[#C6A96C]/10 rounded-full blur-[120px] pointer-events-none" />
@@ -81,18 +81,18 @@ export const ModularConfigurator: React.FC<ModularConfiguratorProps> = ({
       <div className="relative z-10">
         
         {/* Flagship Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full spatial-nav-capsule text-xs font-mono tracking-widest text-[#D98B3A] uppercase mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full spatial-nav-capsule text-[11px] sm:text-xs font-mono tracking-widest text-[#D98B3A] uppercase mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Super Package • Custom Ecosystem</span>
           </div>
 
-          <h3 className="font-headline text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white mb-4">
+          <h3 className="font-headline text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-white mb-3 sm:mb-4">
             One Partner. <br />
             <span className="gold-gradient-text">Every Digital Possibility.</span>
           </h3>
 
-          <p className="text-sm sm:text-base text-[#A1A1A6] leading-relaxed">
+          <p className="text-xs sm:text-base text-[#A1A1A6] leading-relaxed px-2">
             Bring your digital operations together through one coordinated creative partner.
             Configure your custom combination below with transparent investment in INR (₹).
           </p>
@@ -218,7 +218,7 @@ export const ModularConfigurator: React.FC<ModularConfiguratorProps> = ({
 
             <button
               onClick={() => onBuildPresence(selectedServices)}
-              className="w-full sm:w-auto spatial-pill spatial-pill-amber py-4 px-8 text-xs font-semibold text-black tracking-wider whitespace-nowrap"
+              className="w-full sm:w-auto spatial-pill spatial-pill-amber py-3.5 sm:py-4 px-6 sm:px-8 text-xs font-semibold text-black tracking-wider whitespace-nowrap justify-center"
             >
               <span>BUILD YOUR DIGITAL PRESENCE</span>
               <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />

@@ -33,28 +33,28 @@ export const ProcessSection: React.FC = () => {
         </div>
 
         {/* Step Indicator Tabs */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 mb-8 sm:mb-12">
           {processSteps.map((step, idx) => {
             const isActive = activeStep === idx;
             return (
               <button
                 key={step.step}
                 onClick={() => setActiveStep(idx)}
-                className={`p-5 rounded-2xl text-left transition-all duration-300 cursor-pointer ${
+                className={`p-3.5 sm:p-5 rounded-2xl text-left transition-all duration-300 cursor-pointer ${
                   isActive
                     ? 'spatial-glass border-[#D98B3A]/80 shadow-[0_15px_40px_rgba(217,139,58,0.25)]'
                     : 'bg-white/[0.03] border border-white/10 opacity-70 hover:opacity-100 hover:border-white/25'
                 }`}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-xs text-[#D98B3A] font-semibold">
+                <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                  <span className="font-mono text-[11px] sm:text-xs text-[#D98B3A] font-semibold">
                     STEP {step.step}
                   </span>
-                  <span className="text-[10px] font-mono text-[#A1A1A1]">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-[#A1A1A1]">
                     {step.duration}
                   </span>
                 </div>
-                <h4 className="font-headline text-base sm:text-lg font-bold text-white uppercase tracking-wide">
+                <h4 className="font-headline text-xs sm:text-base md:text-lg font-bold text-white uppercase tracking-wide truncate">
                   {step.name}
                 </h4>
               </button>
@@ -63,11 +63,11 @@ export const ProcessSection: React.FC = () => {
         </div>
 
         {/* Active Step Spatial Glass Panel */}
-        <div className="spatial-glass rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+        <div className="spatial-glass rounded-3xl p-6 sm:p-12 lg:p-16 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             
             {/* Step Left Info (7 cols) */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-4 sm:space-y-6">
               <div className="flex items-center gap-3">
                 <span className="px-3.5 py-1.5 rounded-full spatial-nav-capsule text-xs font-mono text-[#D98B3A]">
                   PHASE {processSteps[activeStep].step}
@@ -105,7 +105,7 @@ export const ProcessSection: React.FC = () => {
             </div>
 
             {/* Step Right Flow Graphic (5 cols) */}
-            <div className="lg:col-span-5 p-8 rounded-2xl bg-white/[0.03] border border-white/10 space-y-6">
+            <div className="lg:col-span-5 p-5 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 space-y-4 sm:space-y-6">
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
                 <span className="text-xs font-mono uppercase text-[#A1A1A1]">Sprint Architecture</span>
                 <div className="flex items-center gap-1.5 text-xs font-mono text-[#D98B3A]">

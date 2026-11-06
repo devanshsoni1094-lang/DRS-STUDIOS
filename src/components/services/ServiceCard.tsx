@@ -112,10 +112,10 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
             </div>
 
             {/* Glass CTA Actions with Balanced Spacing */}
-            <div className="pt-3 flex flex-wrap items-center gap-4">
+            <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 onClick={() => onInquire(service.title)}
-                className="spatial-pill spatial-pill-amber py-3 px-7 text-xs font-semibold text-black"
+                className="spatial-pill spatial-pill-amber py-3.5 sm:py-3 px-6 sm:px-7 text-xs font-semibold text-black justify-center"
               >
                 <span>{service.ctaText}</span>
                 <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -123,7 +123,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
 
               <button
                 onClick={() => onSelect(service)}
-                className="spatial-pill py-3 px-6 text-xs text-white"
+                className="spatial-pill py-3.5 sm:py-3 px-6 text-xs text-white justify-center"
               >
                 <span>View Full Scope</span>
                 <span className="text-[#C6A96C]">&rarr;</span>

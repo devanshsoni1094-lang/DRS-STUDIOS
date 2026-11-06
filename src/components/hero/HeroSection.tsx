@@ -58,28 +58,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     <section
       id="hero"
       data-section-name="HERO ECOSYSTEM"
-      className="relative min-h-[100svh] flex flex-col justify-between pt-36 sm:pt-42 pb-14 overflow-hidden bg-[#050505] border-b border-white/10"
+      className="relative min-h-[100svh] flex flex-col justify-between pt-28 sm:pt-36 md:pt-42 pb-10 sm:pb-14 overflow-hidden bg-[#050505] border-b border-white/10"
     >
       {/* Interactive atmospheric canvas mesh with warm amber lighting */}
       <AmbientMesh />
 
       {/* Warm amber bloom center glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[550px] bg-[#D98B3A]/12 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[600px] md:w-[900px] h-[320px] sm:h-[550px] bg-[#D98B3A]/12 rounded-full blur-[120px] sm:blur-[180px] pointer-events-none" />
 
       {/* Main Spatial Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full flex-1 flex flex-col justify-between py-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full flex-1 flex flex-col justify-between py-2 sm:py-4">
         
         {/* Top Kicker Capsule with Breathable Clearance */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full spatial-nav-capsule text-xs font-mono tracking-widest uppercase text-[#C6A96C]">
-            <span className="w-2 h-2 rounded-full bg-[#D98B3A] animate-ping" />
+        <div className="flex justify-center mb-5 sm:mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full spatial-nav-capsule text-[10px] sm:text-xs font-mono tracking-widest uppercase text-[#C6A96C]">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#D98B3A] animate-ping" />
             <span>Creative Intelligence. Digital Excellence.</span>
           </div>
         </div>
 
         {/* Master Editorial Headline with Generous Spacing */}
-        <div className="text-center max-w-5xl mx-auto mb-10 sm:mb-14">
-          <h1 className="font-headline font-bold text-white tracking-tight text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05] uppercase">
+        <div className="text-center max-w-5xl mx-auto mb-8 sm:mb-12 md:mb-14">
+          <h1 className="font-headline font-bold text-white tracking-tight text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.1] sm:leading-[1.05] uppercase safe-break">
             Your Entire{' '}
             <span className="gold-gradient-text font-extrabold">
               Digital World.
@@ -88,15 +88,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             One Creative Partner.
           </h1>
 
-          <p className="max-w-2xl mx-auto mt-6 text-sm sm:text-base md:text-lg text-[#A1A1A1] font-light leading-relaxed">
+          <p className="max-w-2xl mx-auto mt-4 sm:mt-6 text-xs sm:text-base md:text-lg text-[#A1A1A1] font-light leading-relaxed px-2">
             DRS STUDIOS engineers premier social media dominance, high-performance web applications, and cinema-grade creative production for forward-thinking brands.
           </p>
 
           {/* Glass Action Pills with Generous Margins */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 px-2">
             <button
               onClick={onStartProject}
-              className="w-full sm:w-auto spatial-pill spatial-pill-amber py-4 px-9 text-xs font-semibold tracking-wider text-black rounded-full"
+              className="w-full sm:w-auto spatial-pill spatial-pill-amber py-3.5 sm:py-4 px-7 sm:px-9 text-xs font-semibold tracking-wider text-black rounded-full"
             >
               <span>START A PROJECT</span>
               <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
@@ -104,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             <button
               onClick={onExploreServices}
-              className="w-full sm:w-auto spatial-pill py-4 px-9 text-xs font-medium tracking-wider text-white rounded-full"
+              className="w-full sm:w-auto spatial-pill py-3.5 sm:py-4 px-7 sm:px-9 text-xs font-medium tracking-wider text-white rounded-full"
             >
               <Compass className="w-4 h-4 text-[#C6A96C]" />
               <span>EXPLORE SERVICES</span>
@@ -182,8 +182,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* Bottom Subtle Scroll Indicator with Balanced Padding */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono uppercase text-[#A1A1A1] tracking-widest">
-        <div className="hidden sm:flex items-center gap-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full pt-4 sm:pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] sm:text-[11px] font-mono uppercase text-[#A1A1A1] tracking-widest">
+        <div className="hidden sm:flex items-center gap-4 lg:gap-6">
           <span>140+ ENTERPRISE RELEASES</span>
           <span className="text-white/20">•</span>
           <span>4.8X AVERAGE GROWTH</span>
@@ -191,9 +191,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <span>INDIAN & GLOBAL CLIENTELE</span>
         </div>
 
+        <div className="sm:hidden flex items-center gap-2 text-[10px] text-[#A1A1A1]">
+          <span>140+ RELEASES</span>
+          <span className="text-white/20">•</span>
+          <span>4.8X AVG GROWTH</span>
+        </div>
+
         <button
           onClick={onExploreServices}
-          className="mx-auto sm:mx-0 flex items-center gap-2 text-[#A1A1A1] hover:text-[#D98B3A] transition-colors cursor-pointer"
+          className="flex items-center gap-2 text-[#A1A1A1] hover:text-[#D98B3A] transition-colors cursor-pointer text-[10px] sm:text-xs"
         >
           <span>EXPLORE SPATIAL ECOSYSTEM</span>
           <ArrowDown className="w-3.5 h-3.5 text-[#D98B3A] animate-bounce" />

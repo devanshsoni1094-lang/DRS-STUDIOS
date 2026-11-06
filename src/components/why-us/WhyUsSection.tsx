@@ -31,25 +31,25 @@ export const WhyUsSection: React.FC = () => {
         </div>
 
         {/* 6 Core Pillars Grid with Floating Glass Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 sm:mb-20">
           {whyUsPillars.map((pillar) => (
             <div
               key={pillar.number}
-              className="spatial-glass rounded-3xl p-8 hover:border-[#D98B3A]/60 transition-all duration-300 group flex flex-col justify-between"
+              className="spatial-glass rounded-3xl p-6 sm:p-8 hover:border-[#D98B3A]/60 transition-all duration-300 group flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center justify-between mb-4 sm:mb-6">
                   <span className="font-mono text-xs text-[#D98B3A] font-semibold">
                     0{pillar.number}
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-[#D98B3A] transition-colors" />
                 </div>
 
-                <h3 className="font-headline text-lg sm:text-xl font-bold text-white mb-3 tracking-wide uppercase">
+                <h3 className="font-headline text-base sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-wide uppercase">
                   {pillar.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-white/90 font-medium mb-3 leading-relaxed">
+                <p className="text-xs sm:text-sm text-white/90 font-medium mb-2 sm:mb-3 leading-relaxed">
                   {pillar.description}
                 </p>
 
@@ -58,7 +58,7 @@ export const WhyUsSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-white/10 flex items-center gap-2 text-[10px] font-mono uppercase text-[#A1A1A1] tracking-wider group-hover:text-[#C6A96C] transition-colors">
+              <div className="pt-5 sm:pt-6 mt-5 sm:mt-6 border-t border-white/10 flex items-center gap-2 text-[10px] font-mono uppercase text-[#A1A1A1] tracking-wider group-hover:text-[#C6A96C] transition-colors">
                 <Sparkles className="w-3.5 h-3.5 text-[#D98B3A]" />
                 <span>Executive Guarantee</span>
               </div>
@@ -67,11 +67,15 @@ export const WhyUsSection: React.FC = () => {
         </div>
 
         {/* Comparison Matrix: DRS Studios vs Fragmented Agencies vs Freelancers */}
-        <div className="spatial-glass rounded-3xl p-8 sm:p-12 overflow-x-auto">
-          <div className="min-w-[640px]">
-            <div className="pb-6 mb-6 border-b border-white/10 flex items-center justify-between">
+        <div className="spatial-glass rounded-3xl p-5 sm:p-10 lg:p-12 overflow-x-auto touch-scroll">
+          <div className="min-w-[620px]">
+            <div className="pb-5 sm:pb-6 mb-6 border-b border-white/10 flex items-center justify-between">
               <div>
-                <h4 className="font-headline text-xl sm:text-2xl font-bold text-white uppercase tracking-tight">
+                <div className="sm:hidden flex items-center gap-1.5 text-[10px] font-mono text-[#D98B3A] mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D98B3A] animate-pulse" />
+                  <span>Swipe horizontally to compare columns</span>
+                </div>
+                <h4 className="font-headline text-lg sm:text-2xl font-bold text-white uppercase tracking-tight">
                   The DRS Model vs Traditional Fragmented Workflows
                 </h4>
                 <p className="text-xs text-[#A1A1A1] mt-1">

@@ -44,9 +44,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onStartProject }) =>
         </div>
 
         {/* Large Translucent Glass Philosophy Surface (Prompt Section 09) */}
-        <div className="spatial-glass rounded-3xl p-8 sm:p-12 lg:p-16 mb-20 relative overflow-hidden">
+        <div className="spatial-glass rounded-3xl p-6 sm:p-12 lg:p-16 mb-12 sm:mb-20 relative overflow-hidden">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
             <div className="lg:col-span-7">
               <h2 className="font-headline font-bold text-white text-3xl sm:text-5xl lg:text-6xl leading-[1.08] uppercase">
                 We Make Digital <br />
@@ -54,12 +54,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onStartProject }) =>
               </h2>
             </div>
 
-            <div className="lg:col-span-5 space-y-6">
-              <p className="text-base sm:text-lg text-white font-light leading-relaxed">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+              <p className="text-sm sm:text-lg text-white font-light leading-relaxed">
                 DRS STUDIOS brings creativity, technology, and execution together to help businesses establish a powerful digital presence.
               </p>
               
-              <div className="p-5 rounded-2xl bg-white/[0.04] border-l-2 border-[#D98B3A] border-y border-r border-white/10 text-sm sm:text-base text-[#E5E5E5] leading-relaxed italic">
+              <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.04] border-l-2 border-[#D98B3A] border-y border-r border-white/10 text-xs sm:text-base text-[#E5E5E5] leading-relaxed italic">
                 "We believe exceptional digital experiences are built through thoughtful strategy, creative excellence, and attention to detail."
               </div>
             </div>
@@ -68,22 +68,22 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onStartProject }) =>
         </div>
 
         {/* 3 Floating Glass Value Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 sm:mb-20">
           {pillars.map((pillar) => (
             <div
               key={pillar.step}
-              className="spatial-glass rounded-3xl p-8 hover:border-[#D98B3A]/60 transition-all duration-300 group flex flex-col justify-between"
+              className="spatial-glass rounded-3xl p-6 sm:p-8 hover:border-[#D98B3A]/60 transition-all duration-300 group flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-8">
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 group-hover:border-[#D98B3A]/50 transition-colors">
+                <div className="flex items-center justify-between mb-6 sm:mb-8">
+                  <div className="p-3 sm:p-3.5 rounded-2xl bg-white/5 border border-white/10 group-hover:border-[#D98B3A]/50 transition-colors">
                     {pillar.icon}
                   </div>
                   <span className="font-mono text-xs text-[#A1A1A1] group-hover:text-[#D98B3A] transition-colors">
                     [ // {pillar.step} ]
                   </span>
                 </div>
-                <h3 className="font-headline text-lg sm:text-xl font-bold text-white mb-3 tracking-wide">
+                <h3 className="font-headline text-base sm:text-xl font-bold text-white mb-2 sm:mb-3 tracking-wide">
                   {pillar.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#A1A1A1] leading-relaxed">
@@ -91,7 +91,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onStartProject }) =>
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-white/10 flex items-center gap-2 text-[10px] font-mono text-[#A1A1A1] uppercase tracking-wider group-hover:text-white transition-colors">
+              <div className="pt-5 sm:pt-6 mt-5 sm:mt-6 border-t border-white/10 flex items-center gap-2 text-[10px] font-mono text-[#A1A1A1] uppercase tracking-wider group-hover:text-white transition-colors">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#D98B3A]" />
                 <span>Engineered For Reliability</span>
               </div>
@@ -100,13 +100,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onStartProject }) =>
         </div>
 
         {/* Quantified Metrics Glass Strip */}
-        <div className="spatial-glass rounded-3xl p-8 sm:p-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="spatial-glass rounded-3xl p-6 sm:p-10 lg:p-12 grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {companyIdentity.stats.map((stat, idx) => (
-            <div key={idx} className="space-y-2">
-              <span className="block font-headline text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            <div key={idx} className="space-y-1 sm:space-y-2">
+              <span className="block font-headline text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
                 {stat.value}
               </span>
-              <span className="block text-xs uppercase tracking-wider text-[#A1A1A1]">
+              <span className="block text-[10px] sm:text-xs uppercase tracking-wider text-[#A1A1A1]">
                 {stat.label}
               </span>
             </div>

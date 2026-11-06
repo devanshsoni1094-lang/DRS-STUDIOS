@@ -34,7 +34,7 @@ export const SubmissionReceiptModal: React.FC<SubmissionReceiptModalProps> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 animate-in fade-in duration-200">
       <div className="fixed inset-0 bg-black/85 backdrop-blur-2xl" onClick={onClose} />
 
-      <div className="relative z-10 w-full max-w-2xl spatial-glass rounded-3xl p-6 sm:p-10 text-white shadow-[0_0_90px_rgba(0,0,0,0.95)]">
+      <div className="relative z-10 w-full max-w-2xl max-h-[92vh] overflow-y-auto touch-scroll spatial-glass rounded-3xl p-6 sm:p-10 text-white shadow-[0_0_90px_rgba(0,0,0,0.95)]">
         <button
           onClick={onClose}
           className="absolute top-6 right-6 p-2 rounded-full spatial-nav-capsule text-[#A1A1A1] hover:text-white transition-colors cursor-pointer"
