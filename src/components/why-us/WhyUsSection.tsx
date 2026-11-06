@@ -4,28 +4,28 @@ import { Check, X, Sparkles, Layers, Shield, Zap } from 'lucide-react';
 
 export const WhyUsSection: React.FC = () => {
   return (
-    <section id="why-us" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-[#262626]">
+    <section id="why-us" className="py-28 sm:py-36 bg-[#030303] relative overflow-hidden border-b border-[#1E1E24]">
       {/* Background glow */}
-      <div className="absolute right-1/3 top-1/2 w-96 h-96 bg-[#C6A96C]/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute right-1/3 top-1/2 w-96 h-96 bg-[#FF9E2C]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="flex items-center gap-3 mb-6">
-          <span className="w-6 h-[1px] bg-[#C6A96C]" />
-          <span className="text-xs font-mono tracking-[0.2em] uppercase text-[#DFCA94]">
-            09 — WHY DRS STUDIOS
+          <span className="text-[#FF9E2C] font-mono text-xs font-bold">+ + +</span>
+          <span className="text-xs font-mono tracking-[0.2em] uppercase text-[#FF9E2C]">
+            09 // WHY DRS STUDIOS
           </span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
-            <h2 className="font-headline font-light tracking-tight text-white text-3xl sm:text-5xl lg:text-6xl leading-[1.1] uppercase">
+            <h2 className="font-extended text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide text-white leading-tight">
               Simplify Digital. <br />
-              <span className="gold-gradient-text font-normal">Elevate Your Brand.</span>
+              <span className="text-[#FF9E2C]">Elevate Your Brand.</span>
             </h2>
           </div>
-          <p className="max-w-md text-xs sm:text-sm text-[#A1A1A1] leading-relaxed">
-            Built from the ground up to solve the real operational headaches businesses face when trying to manage web development, social media, and content creation separately.
+          <p className="max-w-md text-xs sm:text-sm text-[#A1A1A6] font-mono leading-relaxed">
+            Engineered from the ground up to solve the operational headaches businesses face when trying to manage web development, social media, and visual production separately.
           </p>
         </div>
 
@@ -34,100 +34,100 @@ export const WhyUsSection: React.FC = () => {
           {whyUsPillars.map((pillar) => (
             <div
               key={pillar.number}
-              className="p-8 rounded-sm bg-[#0E0E0E] border border-[#262626] hover:border-[#C6A96C]/40 transition-all duration-300 group flex flex-col justify-between"
+              className="p-8 rounded-2xl bg-[#070709] border border-[#1E1E24] hover:border-[#FF9E2C]/50 transition-all duration-300 group flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="font-mono text-xs text-[#C6A96C] font-semibold">
-                    {pillar.number}
+                  <span className="font-mono text-xs text-[#FF9E2C] font-semibold">
+                    [ // {pillar.number} ]
                   </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#262626] group-hover:bg-[#C6A96C] transition-colors" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1E1E24] group-hover:bg-[#FF9E2C] transition-colors" />
                 </div>
 
-                <h3 className="font-headline text-lg sm:text-xl font-medium text-white mb-3 tracking-wide uppercase">
+                <h3 className="font-extended text-base sm:text-lg font-bold text-white mb-3 tracking-wide uppercase">
                   {pillar.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-white/90 font-normal mb-3 leading-relaxed">
+                <p className="text-xs sm:text-sm text-white/90 font-medium mb-3 leading-relaxed">
                   {pillar.description}
                 </p>
 
-                <p className="text-xs text-[#A1A1A1] leading-relaxed font-light">
+                <p className="text-xs text-[#A1A1A6] font-mono leading-relaxed">
                   {pillar.detail}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-[#1F1F1F] flex items-center gap-2 text-[10px] font-mono uppercase text-[#A1A1A1] tracking-wider group-hover:text-[#DFCA94] transition-colors">
-                <Sparkles className="w-3 h-3 text-[#C6A96C]" />
-                <span>Executive Guarantee</span>
+              <div className="pt-6 mt-6 border-t border-[#141418] flex items-center gap-2 text-[10px] font-mono uppercase text-[#71717A] tracking-wider group-hover:text-[#FF9E2C] transition-colors">
+                <span className="text-[#FF9E2C]">+</span>
+                <span>Executive Quality Standard</span>
               </div>
             </div>
           ))}
         </div>
 
         {/* Comparison Matrix: DRS Studios vs Fragmented Agencies vs Freelancers */}
-        <div className="p-8 sm:p-12 rounded-sm bg-[#0E0E0E] border border-[#262626] overflow-x-auto">
+        <div className="p-8 sm:p-12 rounded-2xl bg-[#070709] border border-[#1E1E24] overflow-x-auto shadow-[0_0_50px_rgba(0,0,0,0.8)]">
           <div className="min-w-[640px]">
-            <div className="pb-6 mb-6 border-b border-[#262626] flex items-center justify-between">
+            <div className="pb-6 mb-6 border-b border-[#1E1E24] flex items-center justify-between">
               <div>
-                <h4 className="font-headline text-xl sm:text-2xl font-light text-white uppercase tracking-tight">
-                  The DRS Advantage vs Traditional Models
+                <h4 className="font-extended text-lg sm:text-xl font-bold text-white uppercase tracking-wide">
+                  The DRS Model vs Traditional Fragmented Workflows
                 </h4>
-                <p className="text-xs text-[#A1A1A1] mt-1">
-                  Why modern founders and established companies consolidate their digital stack with us.
+                <p className="text-xs font-mono text-[#71717A] mt-1">
+                  Why modern founders and high-growth brands consolidate their entire digital presence with us.
                 </p>
               </div>
             </div>
 
-            <table className="w-full text-left text-xs">
+            <table className="w-full text-left text-xs font-mono">
               <thead>
-                <tr className="border-b border-[#262626] text-[11px] font-mono uppercase tracking-wider text-[#A1A1A1]">
-                  <th className="py-4 font-normal">Operating Dimension</th>
-                  <th className="py-4 font-semibold text-[#DFCA94] bg-[#161616]/60 px-4 rounded-t-sm">
+                <tr className="border-b border-[#1E1E24] text-[10px] uppercase tracking-wider text-[#71717A]">
+                  <th className="py-4 font-normal">Operational Dimension</th>
+                  <th className="py-4 font-bold text-[#FF9E2C] bg-[#0E0E14] px-4 rounded-t-xl">
                     DRS STUDIOS
                   </th>
                   <th className="py-4 font-normal px-4">Traditional Agencies</th>
                   <th className="py-4 font-normal px-4">Fragmented Freelancers</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1F1F1F]">
+              <tbody className="divide-y divide-[#141418]">
                 <tr>
                   <td className="py-4 text-white font-medium">Single Point of Ownership</td>
-                  <td className="py-4 bg-[#161616]/60 px-4 text-[#DFCA94] font-medium flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#C6A96C]" /> One dedicated lead
+                  <td className="py-4 bg-[#0E0E14] px-4 text-[#FF9E2C] font-semibold flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#FF9E2C]" /> Dedicated Lead Director
                   </td>
-                  <td className="py-4 px-4 text-[#A1A1A1]">Account managers & red tape</td>
-                  <td className="py-4 px-4 text-[#737373] flex items-center gap-2">
+                  <td className="py-4 px-4 text-[#A1A1A6]">Account managers & red tape</td>
+                  <td className="py-4 px-4 text-[#71717A] flex items-center gap-2">
                     <X className="w-4 h-4 text-red-500/60" /> Disconnected individuals
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-4 text-white font-medium">Multi-Platform Brand Consistency</td>
-                  <td className="py-4 bg-[#161616]/60 px-4 text-[#DFCA94] font-medium flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#C6A96C]" /> Unified aesthetic tokens
+                  <td className="py-4 text-white font-medium">Cross-Platform Cohesion</td>
+                  <td className="py-4 bg-[#0E0E14] px-4 text-[#FF9E2C] font-semibold flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#FF9E2C]" /> Unified aesthetic tokens
                   </td>
-                  <td className="py-4 px-4 text-[#A1A1A1]">Siloed departments</td>
-                  <td className="py-4 px-4 text-[#737373] flex items-center gap-2">
+                  <td className="py-4 px-4 text-[#A1A1A6]">Siloed departments</td>
+                  <td className="py-4 px-4 text-[#71717A] flex items-center gap-2">
                     <X className="w-4 h-4 text-red-500/60" /> Inconsistent styling
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-4 text-white font-medium">Modern AI & High-Tech Speed</td>
-                  <td className="py-4 bg-[#161616]/60 px-4 text-[#DFCA94] font-medium flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#C6A96C]" /> Integrated AI pipelines
+                  <td className="py-4 text-white font-medium">Modern AI Integration & Speed</td>
+                  <td className="py-4 bg-[#0E0E14] px-4 text-[#FF9E2C] font-semibold flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#FF9E2C]" /> Integrated AI pipelines
                   </td>
-                  <td className="py-4 px-4 text-[#A1A1A1]">Slow legacy workflows</td>
-                  <td className="py-4 px-4 text-[#A1A1A1]">Variable tools</td>
+                  <td className="py-4 px-4 text-[#A1A1A6]">Slow legacy workflows</td>
+                  <td className="py-4 px-4 text-[#A1A1A6]">Unvetted tools</td>
                 </tr>
                 <tr>
-                  <td className="py-4 text-white font-medium">Pricing & Contract Flexibility</td>
-                  <td className="py-4 bg-[#161616]/60 px-4 text-[#DFCA94] font-medium flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#C6A96C]" /> Modular & transparent
+                  <td className="py-4 text-white font-medium">Pricing Transparency & Scaling</td>
+                  <td className="py-4 bg-[#0E0E14] px-4 text-[#FF9E2C] font-semibold flex items-center gap-2">
+                    <Check className="w-4 h-4 text-[#FF9E2C]" /> Modular & predictable
                   </td>
-                  <td className="py-4 px-4 text-[#737373] flex items-center gap-2">
-                    <X className="w-4 h-4 text-red-500/60" /> Bloated 12-month lockins
+                  <td className="py-4 px-4 text-[#71717A] flex items-center gap-2">
+                    <X className="w-4 h-4 text-red-500/60" /> Bloated annual lock-ins
                   </td>
-                  <td className="py-4 px-4 text-[#A1A1A1]">Hourly scope creep</td>
+                  <td className="py-4 px-4 text-[#A1A1A6]">Hourly scope creep</td>
                 </tr>
               </tbody>
             </table>
