@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Check, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Check, Sparkles, Maximize2 } from 'lucide-react';
 import { ServiceItem } from '../../types';
 
 interface ServiceCardProps {
@@ -18,68 +18,68 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   const isEven = index % 2 === 1;
 
   return (
-    <div className="py-12 sm:py-16">
-      {/* Spatial Glass Container Panel */}
-      <div className="spatial-glass rounded-3xl p-8 sm:p-12 lg:p-14 relative overflow-hidden">
+    <div className="py-8 sm:py-12">
+      {/* Spatial Glass Container Panel with Refined Editorial Spacing */}
+      <div className="spatial-glass rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden">
         
-        {/* Ambient Warm Amber Light Bloom in Card Corner */}
-        <div className={`absolute top-0 w-80 h-80 bg-[#D98B3A]/10 rounded-full blur-[100px] pointer-events-none ${
-          isEven ? 'right-0' : 'left-0'
-        }`} />
+        {/* Subtle Ambient Light Bloom */}
+        <div
+          className={`absolute top-0 w-96 h-96 bg-[#D98B3A]/10 rounded-full blur-[130px] pointer-events-none ${
+            isEven ? 'right-0' : 'left-0'
+          }`}
+        />
 
         <div
-          className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center relative z-10 ${
+          className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 ${
             isEven ? 'lg:flex-row-reverse' : ''
           }`}
         >
-          {/* Visual Column (5 cols) */}
+          {/* Visual Column (6 cols for generous width and 100% unclipped visibility) */}
           <div
-            className={`lg:col-span-5 relative group cursor-pointer ${
+            className={`lg:col-span-6 relative group cursor-pointer ${
               isEven ? 'lg:order-2' : 'lg:order-1'
             }`}
             onClick={() => onSelect(service)}
           >
-            <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden border border-white/15 bg-[#0A0A0E] shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:border-[#D98B3A]/60 group-hover:shadow-[0_20px_60px_rgba(217,139,58,0.25)]">
+            {/* Pure 16:9 Aspect Ratio Frame — Matches 1024x576 exactly so 0% of the graphic is cut */}
+            <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/15 bg-[#08080C] shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-500 group-hover:border-[#D98B3A]/70 group-hover:shadow-[0_20px_60px_rgba(217,139,58,0.3)]">
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95 contrast-110"
+                className="w-full h-full object-contain sm:object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02] filter brightness-100 contrast-105"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/30 to-transparent" />
 
-              {/* Floating Glass Pill Badge */}
-              <div className="absolute top-4 left-4">
-                <span className="px-3.5 py-1.5 rounded-full spatial-nav-capsule text-[10px] font-mono uppercase tracking-widest text-[#C6A96C]">
-                  DIVISION {service.number}
-                </span>
-              </div>
-
-              {/* Bottom Glass Metric Pill */}
-              <div className="absolute bottom-5 left-5 right-5 p-3.5 rounded-xl spatial-nav-capsule flex items-center justify-between">
-                <div>
-                  <span className="block text-[10px] font-mono uppercase text-[#A1A1A1]">
-                    {service.metric.label}
-                  </span>
-                  <span className="text-sm font-semibold text-white tracking-wide">
-                    {service.metric.value}
-                  </span>
+              {/* Click to Expand Hover Indicator */}
+              <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="px-3 py-1.5 rounded-full spatial-nav-capsule flex items-center gap-1.5 text-[10px] font-mono text-[#D98B3A]">
+                  <Maximize2 className="w-3 h-3" />
+                  <span>View Full Graphic</span>
                 </div>
-                <span className="text-xs text-[#D98B3A] font-medium group-hover:translate-x-1 transition-transform">
-                  Explore &rarr;
-                </span>
               </div>
+            </div>
+
+            {/* Below Image Metadata Strip */}
+            <div className="mt-3.5 flex items-center justify-between text-[11px] font-mono px-1">
+              <div className="flex items-center gap-2 text-[#D98B3A]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D98B3A] animate-pulse" />
+                <span>{service.badge}</span>
+              </div>
+              <span className="text-[#A1A1A1]">
+                {service.metric.label}: <strong className="text-white">{service.metric.value}</strong>
+              </span>
             </div>
           </div>
 
-          {/* Content Column (7 cols) */}
+          {/* Content Column (6 cols) with Generous Breathing Room */}
           <div
-            className={`lg:col-span-7 space-y-6 ${
+            className={`lg:col-span-6 space-y-6 ${
               isEven ? 'lg:order-1' : 'lg:order-2'
             }`}
           >
             <div className="flex items-center gap-3">
               <span className="text-xs font-mono tracking-widest text-[#D98B3A] font-semibold">
-                {service.badge}
+                DIVISION {service.number}
               </span>
               <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
               <span className="text-xs font-mono text-[#A1A1A1]">
@@ -87,7 +87,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
               </span>
             </div>
 
-            <h3 className="font-headline text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight uppercase">
+            <h3 className="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight uppercase">
               {service.title}
             </h3>
 
@@ -95,13 +95,13 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
               "{service.description}"
             </p>
 
-            {/* Capabilities Matrix */}
+            {/* Capabilities Matrix with Balanced Rhythm */}
             <div className="pt-2">
-              <h4 className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#C6A96C] mb-3 flex items-center gap-1.5">
+              <h4 className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#C6A96C] mb-3.5 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-[#D98B3A]" />
                 Deliverable Framework
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-2.5">
                 {service.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2.5 text-xs text-[#A1A1A1]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#D98B3A] shrink-0" />
@@ -111,8 +111,8 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
               </div>
             </div>
 
-            {/* Glass CTA Actions */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            {/* Glass CTA Actions with Balanced Spacing */}
+            <div className="pt-3 flex flex-wrap items-center gap-4">
               <button
                 onClick={() => onInquire(service.title)}
                 className="spatial-pill spatial-pill-amber py-3 px-7 text-xs font-semibold text-black"
@@ -125,7 +125,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
                 onClick={() => onSelect(service)}
                 className="spatial-pill py-3 px-6 text-xs text-white"
               >
-                <span>View Full Specifications</span>
+                <span>View Full Scope</span>
                 <span className="text-[#C6A96C]">&rarr;</span>
               </button>
             </div>

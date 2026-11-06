@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Check, ArrowUpRight, Clock, Users, Sparkles } from 'lucide-react';
+import { X, Check, ArrowUpRight, Clock, Users, Sparkles, Maximize2 } from 'lucide-react';
 import { ServiceItem } from '../../types';
 
 interface ServiceDetailModalProps {
@@ -24,11 +24,11 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
       />
 
       {/* Modal Dialog */}
-      <div className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto spatial-glass rounded-3xl p-6 sm:p-10 text-white shadow-[0_0_90px_rgba(0,0,0,0.95)]">
+      <div className="relative z-10 w-full max-w-4xl max-h-[92vh] overflow-y-auto spatial-glass rounded-3xl p-6 sm:p-10 text-white shadow-[0_0_90px_rgba(0,0,0,0.95)]">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 p-2 rounded-full spatial-nav-capsule text-[#A1A1A1] hover:text-white transition-colors"
+          className="absolute top-6 right-6 p-2 rounded-full spatial-nav-capsule text-[#A1A1A1] hover:text-white transition-colors cursor-pointer"
           aria-label="Close service modal"
         >
           <X className="w-5 h-5" />
@@ -45,7 +45,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           </span>
         </div>
 
-        <h3 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-white mb-4 uppercase">
+        <h3 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-white mb-3 uppercase">
           {service.title}
         </h3>
 
@@ -53,23 +53,28 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           "{service.description}"
         </p>
 
-        {/* Hero Visual Preview */}
-        <div className="relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden mb-8 border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-85" />
-          <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-            <div className="px-4 py-2.5 rounded-xl spatial-nav-capsule">
-              <span className="block text-[10px] font-mono uppercase text-[#A1A1A1]">Key Impact</span>
-              <span className="text-sm font-semibold text-white">{service.metric.label}: {service.metric.value}</span>
-            </div>
+        {/* Full 16:9 Unclipped Domain Thumbnail Display (100% visible, no cropped badges) */}
+        <div className="mb-8">
+          <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/15 bg-[#08080C] shadow-[0_20px_50px_rgba(0,0,0,0.85)]">
+            <img
+              src={service.image}
+              alt={service.title}
+              className="w-full h-full object-contain sm:object-cover filter brightness-100 contrast-105"
+            />
+          </div>
+
+          <div className="mt-3 flex items-center justify-between text-xs font-mono text-[#A1A1A1] px-1">
+            <span className="text-[#D98B3A] flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D98B3A]" />
+              {service.badge}
+            </span>
+            <span>
+              {service.metric.label}: <strong className="text-white">{service.metric.value}</strong>
+            </span>
           </div>
         </div>
 
-        {/* Deliverables & Capabilities */}
+        {/* Deliverables & Capabilities Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 pb-8 border-b border-white/10">
           <div>
             <h4 className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-[#D98B3A] mb-4 flex items-center gap-2">

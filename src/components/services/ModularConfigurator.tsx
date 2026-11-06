@@ -73,7 +73,7 @@ export const ModularConfigurator: React.FC<ModularConfiguratorProps> = ({
   };
 
   return (
-    <div className="spatial-glass rounded-3xl p-8 sm:p-12 lg:p-16 my-16 relative overflow-hidden">
+    <div className="spatial-glass rounded-3xl p-6 sm:p-10 lg:p-14 my-14 sm:my-18 relative overflow-hidden">
       {/* Background Amber Blooms */}
       <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-[#D98B3A]/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute -left-20 -top-20 w-80 h-80 bg-[#C6A96C]/10 rounded-full blur-[120px] pointer-events-none" />
@@ -81,8 +81,8 @@ export const ModularConfigurator: React.FC<ModularConfiguratorProps> = ({
       <div className="relative z-10">
         
         {/* Flagship Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full spatial-nav-caps text-xs font-mono tracking-widest text-[#D98B3A] uppercase mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full spatial-nav-capsule text-xs font-mono tracking-widest text-[#D98B3A] uppercase mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Super Package • Custom Ecosystem</span>
           </div>
@@ -92,36 +92,38 @@ export const ModularConfigurator: React.FC<ModularConfiguratorProps> = ({
             <span className="gold-gradient-text">Every Digital Possibility.</span>
           </h3>
 
-          <p className="text-sm sm:text-base text-[#A1A1A1] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#A1A1A6] leading-relaxed">
             Bring your digital operations together through one coordinated creative partner.
             Configure your custom combination below with transparent investment in INR (₹).
           </p>
         </div>
 
-        {/* Super Package Banner Preview (Uploaded Image 4) */}
-        <div className="mb-12 rounded-2xl overflow-hidden border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.8)] relative group">
-          <img
-            src="/services/complete-digital-management.jpg"
-            alt="DRS STUDIOS Super Package"
-            className="w-full h-56 sm:h-72 md:h-84 object-cover object-center filter brightness-95 contrast-110 group-hover:scale-102 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0E] via-transparent to-transparent opacity-80" />
-          
-          <div className="absolute bottom-5 left-5 right-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div className="px-4 py-2 rounded-xl spatial-nav-capsule flex items-center gap-2.5">
+        {/* Super Package Unclipped 16:9 Showcase Frame (100% visible, no cut badges) */}
+        <div className="mb-12">
+          <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/15 bg-[#08080C] shadow-[0_20px_50px_rgba(0,0,0,0.85)] group">
+            <img
+              src="/services/complete-digital-management.jpg"
+              alt="DRS STUDIOS Super Package"
+              className="w-full h-full object-contain sm:object-cover filter brightness-100 contrast-105 group-hover:scale-[1.01] transition-transform duration-700"
+            />
+          </div>
+
+          {/* Underneath Info Bar */}
+          <div className="mt-3.5 p-4 rounded-xl spatial-glass flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
+            <div className="flex items-center gap-2.5 text-white">
               <span className="w-2 h-2 rounded-full bg-[#D98B3A] animate-ping" />
-              <span className="text-xs font-mono font-semibold text-white uppercase tracking-wider">
+              <span className="font-semibold uppercase tracking-wider">
                 DRS Super Package • All 4 Digital Domains Unified
               </span>
             </div>
 
-            <div className="px-4 py-2 rounded-xl bg-[#D98B3A] text-black text-xs font-mono font-bold tracking-wider uppercase self-start sm:self-auto">
+            <div className="px-3.5 py-1.5 rounded-full bg-[#D98B3A] text-black font-bold tracking-wider uppercase self-start sm:self-auto">
               Investment: {pricing.total}
             </div>
           </div>
         </div>
 
-        {/* 4 Interactive Modular Glass Cards with Thumbnails */}
+        {/* 4 Interactive Modular Glass Cards with 16:9 Thumbnails */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mb-12">
           {serviceOptions.map((opt) => {
             const isSelected = selectedServices.includes(opt.name);
@@ -132,46 +134,42 @@ export const ModularConfigurator: React.FC<ModularConfiguratorProps> = ({
                 className={`rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between ${
                   isSelected
                     ? 'spatial-glass border-[#D98B3A]/80 shadow-[0_15px_40px_rgba(217,139,58,0.25)]'
-                    : 'bg-white/[0.02] border border-white/5 opacity-55 hover:opacity-90'
+                    : 'bg-white/[0.02] border border-white/5 opacity-60 hover:opacity-95'
                 }`}
               >
-                {/* Domain Thumbnail Image Header */}
-                <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-[#0A0A0E]">
+                {/* Domain Thumbnail Image Header in Pure 16:9 */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#08080C] border-b border-white/10">
                   <img
                     src={opt.thumbnail}
                     alt={opt.name}
-                    className="w-full h-full object-cover filter contrast-110"
+                    className="w-full h-full object-contain sm:object-cover filter contrast-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C10] via-transparent to-transparent opacity-85" />
 
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 rounded-full spatial-nav-capsule text-[9px] font-mono text-[#D98B3A]">
-                      [ {opt.tag} ]
-                    </span>
-                  </div>
-
-                  <div className="absolute top-3 right-3">
+                  <div className="absolute top-2.5 right-2.5">
                     {isSelected ? (
-                      <div className="p-1 rounded-full bg-[#D98B3A] text-black">
-                        <Check className="w-4 h-4 stroke-[3]" />
+                      <div className="p-1 rounded-full bg-[#D98B3A] text-black shadow-lg">
+                        <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
                     ) : (
                       <div className="p-1 rounded-full bg-black/60 border border-white/20 text-[#777]">
-                        <Square className="w-4 h-4" />
+                        <Square className="w-3.5 h-3.5" />
                       </div>
                     )}
                   </div>
-
-                  <div className="absolute bottom-2.5 right-3">
-                    <span className="px-2.5 py-0.5 rounded-full spatial-nav-capsule text-[10px] font-mono text-[#C6A96C]">
-                      From {opt.inrEstimate}
-                    </span>
-                  </div>
                 </div>
 
-                {/* Info Content */}
+                {/* Info Content with Balanced Spacing */}
                 <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#D98B3A]">
+                        [ {opt.tag} ]
+                      </span>
+                      <span className="text-[10px] font-mono text-[#C6A96C]">
+                        {opt.inrEstimate}
+                      </span>
+                    </div>
+
                     <h5 className="font-headline text-base sm:text-lg font-bold text-white mb-1.5">
                       {opt.name}
                     </h5>

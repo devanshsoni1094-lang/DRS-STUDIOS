@@ -40,11 +40,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 pt-4 sm:pt-6 px-4 sm:px-6 pointer-events-none transition-all duration-500">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 pt-5 sm:pt-6 px-4 sm:px-6 pointer-events-none transition-all duration-500">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
           
           {/* Floating Spatial Glass Navbar Capsule */}
-          <div className="w-full pointer-events-auto spatial-nav-capsule rounded-full px-5 sm:px-7 py-3 flex items-center justify-between transition-all duration-300">
+          <div className="w-full pointer-events-auto spatial-nav-capsule rounded-full px-5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between transition-all duration-300">
             
             {/* DRS STUDIOS Logo */}
             <a
@@ -56,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
               <img
                 src="/drs-logo.png"
                 alt="DRS STUDIOS"
-                className="h-9 sm:h-11 w-auto object-contain transition-all duration-300 filter drop-shadow-[0_0_12px_rgba(217,139,58,0.35)] group-hover:scale-105"
+                className="h-8 sm:h-10 w-auto object-contain transition-all duration-300 filter drop-shadow-[0_0_12px_rgba(217,139,58,0.35)] group-hover:scale-105"
               />
             </a>
 
@@ -67,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="hover:text-white transition-colors duration-200 relative py-1 text-xs tracking-widest uppercase group"
+                  className="hover:text-white transition-colors duration-200 relative py-1 text-xs tracking-widest uppercase group font-mono"
                 >
                   <span>{link.label}</span>
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-[#D98B3A] to-[#C6A96C] transition-all duration-300 group-hover:w-full rounded-full shadow-[0_0_8px_#D98B3A]"></span>
