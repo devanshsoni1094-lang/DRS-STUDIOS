@@ -170,6 +170,63 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* ========================================================
+   CURSOR ABSORPTION & DE-ABSORPTION ANIMATIONS
+   ======================================================== */
+
+@keyframes absorb-pulse-out {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0.95;
+    border-color: rgba(217, 139, 58, 0.9);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.4);
+    opacity: 0;
+    border-color: rgba(198, 169, 108, 0);
+  }
+}
+
+@keyframes deabsorb-snap-in {
+  0% {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0;
+  }
+}
+
+.animate-absorb-pulse {
+  animation: absorb-pulse-out 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-deabsorb-snap {
+  animation: deabsorb-snap-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Dynamic Ambient Absorption Glow for Sections */
+section, footer {
+  position: relative;
+}
+
+section::after, footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(550px circle at var(--absorbed-x, -999px) var(--absorbed-y, -999px), rgba(217, 139, 58, 0.08), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+section.cursor-absorbed-surface::after,
+footer.cursor-absorbed-surface::after {
+  opacity: 1;
+}
+
 /* Smooth motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {

@@ -6,7 +6,7 @@ export const ProcessSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
 
   return (
-    <section id="process" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-white/10">
+    <section id="process" data-section-name="PROCESS ARCHITECTURE" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-white/10">
       {/* Background warm amber glow */}
       <div className="absolute left-1/2 top-1/3 -translate-x-1/2 w-[500px] h-[500px] bg-[#D98B3A]/10 rounded-full blur-[160px] pointer-events-none" />
 

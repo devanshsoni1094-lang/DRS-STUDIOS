@@ -11,19 +11,66 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onExploreServices,
   onStartProject,
 }) => {
+  const domains = [
+    {
+      id: 'youtube',
+      title: 'YouTube Management',
+      metric: '+248%',
+      metricLabel: 'Retention',
+      desc: 'End-to-end channel strategy, 4K retention editing, thumbnail engineering & algorithmic growth.',
+      image: '/services/youtube-management.jpg',
+      icon: <Youtube className="w-4 h-4 text-[#D98B3A]" />,
+      tag: 'Channel Growth',
+    },
+    {
+      id: 'instagram',
+      title: 'Instagram Growth',
+      metric: '+312%',
+      metricLabel: 'Reach',
+      desc: 'High-conversion Reels architecture, cinematic aesthetics, daily community management & brand scaling.',
+      image: '/services/instagram-management.jpg',
+      icon: <Instagram className="w-4 h-4 text-[#D98B3A]" />,
+      tag: 'Social Dominance',
+    },
+    {
+      id: 'web',
+      title: 'Web Development',
+      metric: '99/100',
+      metricLabel: 'Lighthouse',
+      desc: 'Bespoke spatial glass digital platforms, sub-second latency, modern frameworks & production excellence.',
+      image: '/services/website-development.jpg',
+      icon: <Globe className="w-4 h-4 text-[#D98B3A]" />,
+      tag: 'Spatial Web',
+    },
+    {
+      id: 'production',
+      title: 'Creative Production',
+      metric: '5x',
+      metricLabel: 'Sprints',
+      desc: 'Studio-grade commercial video, 3D brand assets, high-concept photography & motion direction.',
+      image: '/services/creative-production.jpg',
+      icon: <Film className="w-4 h-4 text-[#D98B3A]" />,
+      tag: 'Studio Quality',
+    },
+  ];
+
   return (
-    <section className="relative min-h-[105svh] flex flex-col justify-between pt-36 sm:pt-44 pb-16 overflow-hidden bg-[#050505] border-b border-white/10">
+    <section
+      id="hero"
+      data-section-name="HERO ECOSYSTEM"
+      className="relative min-h-[100svh] flex flex-col justify-between pt-36 sm:pt-42 pb-14 overflow-hidden bg-[#050505] border-b border-white/10"
+    >
       {/* Interactive atmospheric canvas mesh with warm amber lighting */}
       <AmbientMesh />
 
       {/* Warm amber bloom center glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[500px] bg-[#D98B3A]/15 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[550px] bg-[#D98B3A]/12 rounded-full blur-[180px] pointer-events-none" />
 
       {/* Main Spatial Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full flex-1 flex flex-col justify-between py-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full flex-1 flex flex-col justify-between py-4">
         
         {/* Top Kicker Capsule with Breathable Clearance */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full spatial-nav-capsule text-xs font-mono tracking-widest uppercase text-[#C6A96C]">
             <span className="w-2 h-2 rounded-full bg-[#D98B3A] animate-ping" />
             <span>Creative Intelligence. Digital Excellence.</span>
@@ -31,7 +78,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* Master Editorial Headline with Generous Spacing */}
-        <div className="text-center max-w-5xl mx-auto mb-8 sm:mb-12">
+        <div className="text-center max-w-5xl mx-auto mb-10 sm:mb-14">
           <h1 className="font-headline font-bold text-white tracking-tight text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05] uppercase">
             Your Entire{' '}
             <span className="gold-gradient-text font-extrabold">
@@ -42,11 +89,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </h1>
 
           <p className="max-w-2xl mx-auto mt-6 text-sm sm:text-base md:text-lg text-[#A1A1A1] font-light leading-relaxed">
-            We help businesses build, manage, and elevate their digital presence through creative production, social media management, and digital experiences.
+            DRS STUDIOS engineers premier social media dominance, high-performance web applications, and cinema-grade creative production for forward-thinking brands.
           </p>
 
           {/* Glass Action Pills with Generous Margins */}
-          <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={onStartProject}
               className="w-full sm:w-auto spatial-pill spatial-pill-amber py-4 px-9 text-xs font-semibold tracking-wider text-black rounded-full"
@@ -65,121 +112,77 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
 
-        {/* Central Spatial Visual Area with 4 Floating Glass Panels (Clean 16:9 Thumbnail Aspect) */}
-        <div className="relative my-10 sm:my-14 flex items-center justify-center perspective-container">
-          
-          {/* Central 3D Visual with warm amber rim lighting */}
-          <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto z-10">
-            <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-[0_30px_70px_rgba(0,0,0,0.9),0_0_50px_rgba(217,139,58,0.25)] bg-[#0A0A0E]">
+        {/* Flagship Domains 4-Column Spatial Glass Showcase (Clean 16:9 Uncropped Thumbnails) */}
+        <div className="w-full my-6 sm:my-10">
+          {/* Header Row for Ecosystem */}
+          <div className="flex items-center justify-between mb-5 px-1 sm:px-2">
+            <div className="flex items-center gap-3">
               <img
-                src="/hero-astronaut.png"
-                alt="DRS STUDIOS Spatial Visual"
-                className="w-full h-auto object-cover max-h-[380px] sm:max-h-[440px] filter contrast-125"
+                src="/drs-logo.png"
+                alt="DRS STUDIOS"
+                className="h-6 w-auto object-contain filter drop-shadow-[0_0_10px_rgba(217,139,58,0.35)]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-85" />
+              <span className="text-xs font-mono tracking-widest text-[#A1A1A1] uppercase">
+                Core Digital Disciplines
+              </span>
             </div>
-
-            {/* Central Floating DRS STUDIOS Brandmark Crest */}
-            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 z-20">
-              <div className="px-5 py-2.5 rounded-full spatial-nav-capsule flex items-center gap-3">
-                <img
-                  src="/drs-logo.png"
-                  alt="DRS"
-                  className="h-7 w-auto object-contain filter drop-shadow-[0_0_10px_rgba(217,139,58,0.4)]"
-                />
-                <span className="text-[10px] font-mono tracking-widest text-[#C6A96C] uppercase">
-                  SPATIAL FLAGSHIP
-                </span>
-              </div>
-            </div>
+            <span className="text-[11px] font-mono text-[#D98B3A] uppercase tracking-wider hidden sm:inline-flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D98B3A] animate-pulse" />
+              Integrated Spatial Ecosystem
+            </span>
           </div>
 
-          {/* ========================================================
-              4 FLOATING SPATIAL GLASS PANELS WITH 16:9 THUMBNAILS
-             ======================================================== */}
+          {/* Symmetrical 4-Card Spatial Glass Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {domains.map((domain) => (
+              <div
+                key={domain.id}
+                onClick={onExploreServices}
+                className="spatial-glass rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between group cursor-pointer hover:border-[#D98B3A]/50 transition-all duration-300 relative overflow-hidden"
+              >
+                {/* 16:9 Crisp Uncropped Thumbnail Image Container */}
+                <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-3.5 border border-white/10 bg-[#08080C] group-hover:border-[#D98B3A]/30 transition-all">
+                  <img
+                    src={domain.image}
+                    alt={domain.title}
+                    className="w-full h-full object-cover filter contrast-105 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/75 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-[#D98B3A]">
+                    {domain.metric}
+                  </div>
+                </div>
 
-          {/* Floating Glass Panel 1: YOUTUBE MANAGEMENT (Top-Left) */}
-          <div className="hidden lg:block absolute left-2 xl:left-6 top-2 z-20 animate-float-slow">
-            <div className="floating-glass-card p-3 max-w-[250px] overflow-hidden">
-              <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-2.5 border border-white/10 bg-[#08080C]">
-                <img
-                  src="/services/youtube-management.jpg"
-                  alt="YouTube Management"
-                  className="w-full h-full object-cover filter contrast-105"
-                />
+                {/* Domain Header & Description */}
+                <div>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    {domain.icon}
+                    <h3 className="font-headline font-bold text-white text-sm group-hover:text-[#D98B3A] transition-colors">
+                      {domain.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-[11px] text-[#A1A1A1] leading-relaxed line-clamp-2 font-light">
+                    {domain.desc}
+                  </p>
+                </div>
+
+                {/* Card Footer Bar */}
+                <div className="mt-3.5 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-[#C6A96C]">
+                  <span>{domain.tag}</span>
+                  <div className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    <span>EXPLORE</span>
+                    <ArrowUpRight className="w-3 h-3 text-[#D98B3A]" />
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center justify-between text-[11px] font-mono px-0.5">
-                <h4 className="font-headline font-bold text-white text-xs truncate">
-                  YouTube Management
-                </h4>
-                <span className="text-[#D98B3A] font-bold text-[10px]">+248%</span>
-              </div>
-            </div>
+            ))}
           </div>
-
-          {/* Floating Glass Panel 2: INSTAGRAM MANAGEMENT (Bottom-Left) */}
-          <div className="hidden lg:block absolute left-6 xl:left-12 bottom-4 z-20 animate-float-delayed">
-            <div className="floating-glass-card p-3 max-w-[250px] overflow-hidden">
-              <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-2.5 border border-white/10 bg-[#08080C]">
-                <img
-                  src="/services/instagram-management.jpg"
-                  alt="Instagram Management"
-                  className="w-full h-full object-cover filter contrast-105"
-                />
-              </div>
-              <div className="flex items-center justify-between text-[11px] font-mono px-0.5">
-                <h4 className="font-headline font-bold text-white text-xs truncate">
-                  Instagram Growth
-                </h4>
-                <span className="text-[#D98B3A] font-bold text-[10px]">+312%</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Floating Glass Panel 3: WEBSITE DEVELOPMENT (Top-Right) */}
-          <div className="hidden lg:block absolute right-2 xl:right-6 top-4 z-20 animate-float-reverse">
-            <div className="floating-glass-card p-3 max-w-[250px] overflow-hidden">
-              <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-2.5 border border-white/10 bg-[#08080C]">
-                <img
-                  src="/services/website-development.jpg"
-                  alt="Website Development"
-                  className="w-full h-full object-cover filter contrast-105"
-                />
-              </div>
-              <div className="flex items-center justify-between text-[11px] font-mono px-0.5">
-                <h4 className="font-headline font-bold text-white text-xs truncate">
-                  Web Development
-                </h4>
-                <span className="text-[#D98B3A] font-bold text-[10px]">99/100</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Floating Glass Panel 4: CREATIVE PRODUCTION (Bottom-Right) */}
-          <div className="hidden lg:block absolute right-6 xl:right-12 bottom-2 z-20 animate-float-slow">
-            <div className="floating-glass-card p-3 max-w-[250px] overflow-hidden">
-              <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-2.5 border border-white/10 bg-[#08080C]">
-                <img
-                  src="/services/creative-production.jpg"
-                  alt="Creative Production Studio"
-                  className="w-full h-full object-cover filter contrast-105"
-                />
-              </div>
-              <div className="flex items-center justify-between text-[11px] font-mono px-0.5">
-                <h4 className="font-headline font-bold text-white text-xs truncate">
-                  Creative Production
-                </h4>
-                <span className="text-[#D98B3A] font-bold text-[10px]">5x Sprints</span>
-              </div>
-            </div>
-          </div>
-
         </div>
 
       </div>
 
       {/* Bottom Subtle Scroll Indicator with Balanced Padding */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pt-8 border-t border-white/5 flex items-center justify-between text-[11px] font-mono uppercase text-[#A1A1A1] tracking-widest">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono uppercase text-[#A1A1A1] tracking-widest">
         <div className="hidden sm:flex items-center gap-6">
           <span>140+ ENTERPRISE RELEASES</span>
           <span className="text-white/20">•</span>

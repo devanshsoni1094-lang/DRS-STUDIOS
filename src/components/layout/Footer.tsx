@@ -12,7 +12,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartProject }) => {
   };
 
   return (
-    <footer className="bg-[#050505] border-t border-white/10 relative overflow-hidden pt-20 pb-12">
+    <footer id="footer" data-section-name="GLOBAL FOOTER" className="bg-[#050505] border-t border-white/10 relative overflow-hidden pt-20 pb-12">
       {/* Background warm amber glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-[#D98B3A]/10 blur-3xl pointer-events-none"></div>
 

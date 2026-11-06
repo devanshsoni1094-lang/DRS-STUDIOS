@@ -18,7 +18,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
 
   return (
-    <section id="services" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-white/10">
+    <section id="services" data-section-name="DIGITAL SERVICES" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-white/10">
       {/* Background ambient lighting */}
       <div className="absolute left-1/4 top-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#D98B3A]/10 rounded-full blur-[160px] pointer-events-none" />
 

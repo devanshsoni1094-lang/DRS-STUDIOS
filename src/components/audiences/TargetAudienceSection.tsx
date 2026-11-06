@@ -10,7 +10,7 @@ export const TargetAudienceSection: React.FC<TargetAudienceSectionProps> = ({
   onSelectAudienceServices,
 }) => {
   return (
-    <section className="py-24 sm:py-32 bg-[#050505] relative overflow-hidden border-b border-white/10">
+    <section id="audiences" data-section-name="CLIENT INDUSTRIES" className="py-24 sm:py-32 bg-[#050505] relative overflow-hidden border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         <div className="flex items-center gap-3 mb-6">

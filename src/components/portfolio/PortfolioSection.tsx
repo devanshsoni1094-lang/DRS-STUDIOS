@@ -30,7 +30,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   };
 
   return (
-    <section id="work" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-white/10">
+    <section id="work" data-section-name="CREATIVE WORK" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-white/10">
       {/* Background warm amber blooms */}
       <div className="absolute right-1/4 top-1/4 w-[600px] h-[600px] bg-[#D98B3A]/10 rounded-full blur-[170px] pointer-events-none" />
 

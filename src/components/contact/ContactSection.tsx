@@ -17,7 +17,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   )}`;
 
   return (
-    <section id="contact" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden">
+    <section id="contact" data-section-name="CONTACT & INQUIRY" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden">
       {/* Background warm amber blooms */}
       <div className="absolute right-10 bottom-10 w-[550px] h-[550px] bg-[#D98B3A]/10 rounded-full blur-[160px] pointer-events-none" />
 

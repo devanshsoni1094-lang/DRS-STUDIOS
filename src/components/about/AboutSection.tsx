@@ -29,7 +29,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onStartProject }) =>
   ];
 
   return (
-    <section id="about" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-white/10">
+    <section id="about" data-section-name="ABOUT DRS STUDIOS" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-white/10">
       {/* Background warm ambient bloom */}
       <div className="absolute right-0 top-1/3 w-[500px] h-[500px] bg-[#D98B3A]/10 rounded-full blur-[150px] pointer-events-none" />
 

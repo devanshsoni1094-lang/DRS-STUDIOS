@@ -4,7 +4,7 @@ import { Check, X, Sparkles, Layers, Shield, Zap } from 'lucide-react';
 
 export const WhyUsSection: React.FC = () => {
   return (
-    <section id="why-us" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-white/10">
+    <section id="why-us" data-section-name="WHY DRS STUDIOS" className="py-28 sm:py-36 bg-[#050505] relative overflow-hidden border-b border-white/10">
       {/* Background warm amber glow */}
       <div className="absolute right-1/3 top-1/2 w-[550px] h-[550px] bg-[#D98B3A]/10 rounded-full blur-[160px] pointer-events-none" />
 
