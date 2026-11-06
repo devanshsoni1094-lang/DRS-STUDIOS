@@ -7,6 +7,7 @@ import { PortfolioSection } from './components/portfolio/PortfolioSection';
 import { ProcessSection } from './components/process/ProcessSection';
 import { WhyUsSection } from './components/why-us/WhyUsSection';
 import { TargetAudienceSection } from './components/audiences/TargetAudienceSection';
+import { PricingSection } from './components/pricing/PricingSection';
 import { ContactSection } from './components/contact/ContactSection';
 import { Footer } from './components/layout/Footer';
 import { GlowCursor } from './components/ui/GlowCursor';
@@ -35,12 +36,6 @@ export const App: React.FC = () => {
     scrollToContact();
   };
 
-  const handleModularScopeBuild = (services: string[]) => {
-    setSelectedServices(services);
-    setInquiryContext(`Custom modular package with ${services.length} active service modules: ${services.join(', ')}`);
-    scrollToContact();
-  };
-
   const handleInquireProject = (context: string) => {
     setInquiryContext(context);
     scrollToContact();
@@ -49,6 +44,17 @@ export const App: React.FC = () => {
   const handleSelectAudienceServices = (services: string[]) => {
     setSelectedServices(services);
     setInquiryContext(`Tailored industry solution scope: ${services.join(', ')}`);
+    scrollToContact();
+  };
+
+  const handleSelectPricingPackage = (packageTitle: string, priceSummary: string) => {
+    setSelectedServices([packageTitle]);
+    setInquiryContext(`Selected Plan: ${packageTitle} (${priceSummary})`);
+    scrollToContact();
+  };
+
+  const handleCustomBudgetInquiry = () => {
+    setInquiryContext('Custom Plan or Budget Consultation Scope Request');
     scrollToContact();
   };
 
@@ -71,10 +77,9 @@ export const App: React.FC = () => {
         {/* 09. About DRS Studios */}
         <AboutSection onStartProject={scrollToContact} />
 
-        {/* 07. Complete Digital Ecosystem (5 Services + Modular Configurator) */}
+        {/* 07. Complete Digital Ecosystem (5 Services) */}
         <ServicesSection
           onInquireService={handleInquireService}
-          onModularScopeBuild={handleModularScopeBuild}
         />
 
         {/* 08. Creative Portfolio (Work That Speaks For Itself) */}
@@ -89,6 +94,12 @@ export const App: React.FC = () => {
         {/* Target Audience Tailored Solutions */}
         <TargetAudienceSection
           onSelectAudienceServices={handleSelectAudienceServices}
+        />
+
+        {/* 10. Transparent Scaling Pricing Packages (Growth & Branding / Web Design & Dev) */}
+        <PricingSection
+          onSelectPackage={handleSelectPricingPackage}
+          onCustomBudget={handleCustomBudgetInquiry}
         />
 
         {/* 11. Contact & Project Inquiry */}

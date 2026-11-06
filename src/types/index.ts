@@ -80,6 +80,24 @@ export interface TargetAudience {
   recommendedServices: string[];
 }
 
+export type PricingCategory = 'growth-branding' | 'web-dev';
+
+export interface PricingPackageItem {
+  id: string;
+  category: PricingCategory;
+  packageNumber: string; // e.g. "PACKAGE 01" or "PROJECT 01"
+  title: string;
+  subtitle: string;
+  price: string; // e.g. "₹45K" or "₹18K – ₹35K"
+  period: string; // e.g. "/ month" or "/ project"
+  isPopular?: boolean;
+  iconType: 'sparkles' | 'youtube' | 'instagram' | 'linkedin' | 'globe' | 'zap' | 'code';
+  deliverables: string[];
+  workflowTitle?: string;
+  workflowDetails: string[];
+  ctaText?: string;
+}
+
 export interface InquiryFormData {
   name: string;
   businessName: string;

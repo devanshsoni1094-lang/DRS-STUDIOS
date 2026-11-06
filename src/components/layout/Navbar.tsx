@@ -21,6 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartProject }) => {
     { label: 'Home', href: '#' },
     { label: 'Services', href: '#services' },
     { label: 'Work', href: '#work' },
+    { label: 'Pricing', href: '#pricing' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ];

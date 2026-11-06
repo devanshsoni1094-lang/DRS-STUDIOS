@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import { servicesData } from '../../data/services';
 import { ServiceCard } from './ServiceCard';
 import { ServiceDetailModal } from './ServiceDetailModal';
-import { ModularConfigurator } from './ModularConfigurator';
 import { ServiceItem } from '../../types';
-import { Sparkles } from 'lucide-react';
 
 interface ServicesSectionProps {
   onInquireService: (serviceTitle: string) => void;
-  onModularScopeBuild: (selectedServices: string[]) => void;
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({
   onInquireService,
-  onModularScopeBuild,
 }) => {
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
 
@@ -44,18 +40,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         {/* Services List with Floating Spatial Glass Cards */}
         <div className="space-y-6">
           {servicesData.map((service, idx) => (
-            <React.Fragment key={service.id}>
-              <ServiceCard
-                service={service}
-                index={idx}
-                onSelect={(s) => setSelectedService(s)}
-                onInquire={onInquireService}
-              />
-              {/* Flagship Section 10 Embedded right after Service 05 */}
-              {service.id === 'complete-digital-management' && (
-                <ModularConfigurator onBuildPresence={onModularScopeBuild} />
-              )}
-            </React.Fragment>
+            <ServiceCard
+              key={service.id}
+              service={service}
+              index={idx}
+              onSelect={(s) => setSelectedService(s)}
+              onInquire={onInquireService}
+            />
           ))}
         </div>
       </div>
