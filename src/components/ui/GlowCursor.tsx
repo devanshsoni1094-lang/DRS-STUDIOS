@@ -6,9 +6,8 @@ export const GlowCursor: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   
-  // Section-Level Absorption & Interaction states
+  // Section interaction states
   const [isAbsorbed, setIsAbsorbed] = useState(false);
-  const [activeSectionName, setActiveSectionName] = useState<string>('');
   const [isAbsorbingPulse, setIsAbsorbingPulse] = useState(false);
   const [isDeabsorbing, setIsDeabsorbing] = useState(false);
 
@@ -40,18 +39,14 @@ export const GlowCursor: React.FC = () => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
 
-      // 1. Check if hovering over clickable elements (buttons, links, inputs, cards)
+      // 1. Check if hovering over clickable elements
       const isClickable = !!target.closest('a, button, input, select, textarea, [role="button"], .cursor-pointer');
       setIsHovered(isClickable);
 
-      // 2. Identify Section and trigger section-level animations
+      // 2. Identify Section and trigger section-level lighting animations
       const currentSection = target.closest('section, footer') as HTMLElement | null;
 
       if (currentSection) {
-        const sectionName =
-          currentSection.getAttribute('data-section-name') ||
-          (currentSection.id ? currentSection.id.toUpperCase() : 'SPATIAL STUDIO');
-
         // Dynamic coordinate updates for the section's ambient spotlight
         const rect = currentSection.getBoundingClientRect();
         const mouseX = e.clientX - rect.left;
@@ -72,16 +67,15 @@ export const GlowCursor: React.FC = () => {
             activeSectionRef.current.classList.remove('section-active-interactive', 'cursor-absorbed-surface');
           }
           activeSectionRef.current = currentSection;
-          setActiveSectionName(sectionName);
           setIsAbsorbed(true);
           setIsDeabsorbing(false);
 
-          // Trigger captivating entry pulse
+          // Subtle entry pulse
           setIsAbsorbingPulse(true);
           if (pulseTimerRef.current) clearTimeout(pulseTimerRef.current);
           pulseTimerRef.current = setTimeout(() => {
             setIsAbsorbingPulse(false);
-          }, 600);
+          }, 500);
         }
       } else {
         // Cursor moved out of all sections: smoothly reset section state
@@ -89,12 +83,11 @@ export const GlowCursor: React.FC = () => {
           resetActiveSection();
           setIsAbsorbed(false);
 
-          // Trigger smooth de-absorption snap recoil
           setIsDeabsorbing(true);
           if (deabsorbTimerRef.current) clearTimeout(deabsorbTimerRef.current);
           deabsorbTimerRef.current = setTimeout(() => {
             setIsDeabsorbing(false);
-          }, 450);
+          }, 350);
         }
       }
     };
@@ -113,9 +106,9 @@ export const GlowCursor: React.FC = () => {
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
 
-    // High performance smooth lerp loop for the outer floating circle
+    // High performance smooth lerp loop
     const render = () => {
-      const lerpSpeed = isAbsorbed ? 0.16 : 0.20;
+      const lerpSpeed = 0.18;
       trailingRef.current.x += (targetRef.current.x - trailingRef.current.x) * lerpSpeed;
       trailingRef.current.y += (targetRef.current.y - trailingRef.current.y) * lerpSpeed;
 
@@ -142,28 +135,28 @@ export const GlowCursor: React.FC = () => {
 
   if (!isVisible) return null;
 
-  // Responsive circular follower size based on interaction state
-  let haloDiameter = 38;
-  if (isAbsorbed) {
-    haloDiameter = isHovered ? 78 : 62;
-  } else if (isHovered) {
-    haloDiameter = 54;
+  // Refined, sleek, small circular follower size
+  let haloDiameter = 22;
+  if (isHovered) {
+    haloDiameter = 34;
+  } else if (isAbsorbed) {
+    haloDiameter = 28;
   }
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden" aria-hidden="true">
       
-      {/* 1. Absorption Entry Shockwave Ring */}
+      {/* 1. Subtle Absorption Entry Pulse */}
       {isAbsorbingPulse && (
         <div
           className="fixed rounded-full pointer-events-none animate-absorb-pulse"
           style={{
             left: `${position.x}px`,
             top: `${position.y}px`,
-            width: 130,
-            height: 130,
-            border: '2px solid rgba(217, 139, 58, 0.85)',
-            boxShadow: '0 0 35px rgba(217, 139, 58, 0.7), inset 0 0 20px rgba(217, 139, 58, 0.4)',
+            width: 50,
+            height: 50,
+            border: '1.5px solid rgba(217, 139, 58, 0.7)',
+            boxShadow: '0 0 15px rgba(217, 139, 58, 0.4)',
           }}
         />
       )}
@@ -175,15 +168,15 @@ export const GlowCursor: React.FC = () => {
           style={{
             left: `${position.x}px`,
             top: `${position.y}px`,
-            width: 120,
-            height: 120,
-            border: '1.5px solid rgba(255, 255, 255, 0.7)',
-            boxShadow: '0 0 25px rgba(217, 139, 58, 0.5)',
+            width: 45,
+            height: 45,
+            border: '1px solid rgba(255, 255, 255, 0.5)',
+            boxShadow: '0 0 12px rgba(217, 139, 58, 0.3)',
           }}
         />
       )}
 
-      {/* 3. Trailing Floating Circular Follower */}
+      {/* 3. Small, Sleek Trailing Circular Follower */}
       <div
         className="fixed rounded-full pointer-events-none will-change-transform"
         style={{
@@ -192,66 +185,36 @@ export const GlowCursor: React.FC = () => {
           width: haloDiameter,
           height: haloDiameter,
           transform: `translate3d(${trailingPosition.x - haloDiameter / 2}px, ${trailingPosition.y - haloDiameter / 2}px, 0)`,
-          transition: 'width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1), border 0.35s ease, background 0.35s ease, box-shadow 0.35s ease',
-          border: isAbsorbed
-            ? isHovered
-              ? '1.5px solid rgba(255, 255, 255, 0.85)'
-              : '1.5px solid rgba(217, 139, 58, 0.65)'
-            : isHovered
-            ? '1.5px solid rgba(217, 139, 58, 0.9)'
-            : '1px solid rgba(217, 139, 58, 0.45)',
-          background: isAbsorbed
-            ? isHovered
-              ? 'radial-gradient(circle, rgba(217, 139, 58, 0.25) 0%, rgba(198, 169, 108, 0.1) 60%, transparent 85%)'
-              : 'radial-gradient(circle, rgba(217, 139, 58, 0.14) 0%, rgba(198, 169, 108, 0.04) 55%, transparent 80%)'
-            : isHovered
-            ? 'rgba(217, 139, 58, 0.14)'
-            : 'rgba(217, 139, 58, 0.04)',
-          backdropFilter: isAbsorbed ? 'blur(6px) saturate(160%)' : isHovered ? 'blur(4px)' : 'none',
-          boxShadow: isAbsorbed
-            ? isHovered
-              ? '0 0 35px rgba(217, 139, 58, 0.6), inset 0 0 20px rgba(217, 139, 58, 0.3)'
-              : '0 0 25px rgba(217, 139, 58, 0.4), inset 0 0 15px rgba(217, 139, 58, 0.2)'
-            : isHovered
-            ? '0 0 25px rgba(217, 139, 58, 0.6), inset 0 0 15px rgba(217, 139, 58, 0.3)'
-            : '0 0 15px rgba(217, 139, 58, 0.25)',
+          transition: 'width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), border 0.25s ease, background 0.25s ease, box-shadow 0.25s ease',
+          border: isHovered
+            ? '1.5px solid rgba(255, 255, 255, 0.9)'
+            : isAbsorbed
+            ? '1.2px solid rgba(217, 139, 58, 0.75)'
+            : '1px solid rgba(217, 139, 58, 0.5)',
+          background: isHovered
+            ? 'rgba(217, 139, 58, 0.2)'
+            : isAbsorbed
+            ? 'rgba(217, 139, 58, 0.08)'
+            : 'rgba(217, 139, 58, 0.03)',
+          backdropFilter: isHovered ? 'blur(4px)' : 'none',
+          boxShadow: isHovered
+            ? '0 0 20px rgba(217, 139, 58, 0.6), inset 0 0 10px rgba(217, 139, 58, 0.3)'
+            : '0 0 12px rgba(217, 139, 58, 0.35)',
         }}
       />
 
-      {/* 4. Section HUD Status Pill */}
-      {isAbsorbed && activeSectionName && (
-        <div
-          className="fixed pointer-events-none transition-opacity duration-300"
-          style={{
-            left: 0,
-            top: 0,
-            transform: `translate3d(${position.x + 22}px, ${position.y - 28}px, 0)`,
-            opacity: isAbsorbed ? 1 : 0,
-          }}
-        >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/85 backdrop-blur-md border border-[#D98B3A]/30 shadow-[0_4px_25px_rgba(0,0,0,0.85)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D98B3A] animate-ping" />
-            <span className="text-[9px] font-mono font-medium tracking-widest text-[#C6A96C] uppercase whitespace-nowrap">
-              ACTIVE // {activeSectionName}
-            </span>
-          </div>
-        </div>
-      )}
-
-      {/* 5. Center Precision Glowing Dot */}
+      {/* 4. Center Precision Glowing Dot */}
       <div
         className="fixed rounded-full pointer-events-none will-change-transform"
         style={{
           left: 0,
           top: 0,
-          width: isHovered ? 8 : 6,
-          height: isHovered ? 8 : 6,
-          transform: `translate3d(${position.x - (isHovered ? 4 : 3)}px, ${position.y - (isHovered ? 4 : 3)}px, 0)`,
+          width: isHovered ? 6 : 4,
+          height: isHovered ? 6 : 4,
+          transform: `translate3d(${position.x - (isHovered ? 3 : 2)}px, ${position.y - (isHovered ? 3 : 2)}px, 0)`,
           transition: 'width 0.2s ease, height 0.2s ease',
           backgroundColor: '#FFFFFF',
-          boxShadow: isAbsorbed
-            ? '0 0 12px #D98B3A, 0 0 24px #D98B3A, 0 0 35px #C6A96C'
-            : '0 0 8px #D98B3A, 0 0 16px #D98B3A',
+          boxShadow: '0 0 8px #D98B3A, 0 0 16px #D98B3A',
         }}
       />
     </div>

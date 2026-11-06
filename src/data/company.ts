@@ -18,11 +18,11 @@ export const companyIdentity = {
     { label: 'Global & Indian Partners', value: '12 Countries' },
   ],
   contact: {
-    email: 'contact@drsstudios.com',
-    whatsapp: '+919876543210',
-    displayPhone: '+91 98765 43210',
+    email: 'drs.studiosofficial@gmail.com',
+    whatsapp: '+917737378928',
+    displayPhone: '+91 77373 78928',
     location: 'Mumbai, India — Serving Global Clients',
-    instagram: 'https://instagram.com/drsstudios',
+    instagram: 'https://www.instagram.com/drsstudios_official?obrf=MWI1cWFhZDcwMDBxeA==',
     youtube: 'https://youtube.com/@drsstudios',
     status: 'Accepting Select Q2/Q3 2026 Collaborations',
   }

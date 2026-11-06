@@ -214,7 +214,7 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
               type="tel"
               value={formData.whatsapp}
               onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-              placeholder="+91 98765 43210"
+              placeholder="+91 77373 78928"
               className={`w-full px-4 py-3.5 rounded-2xl bg-white/[0.04] border text-white text-sm focus:outline-none transition-colors backdrop-blur-md ${
                 errors.whatsapp ? 'border-red-500/80 focus:border-red-500' : 'border-white/10 focus:border-[#D98B3A]'
               }`}
