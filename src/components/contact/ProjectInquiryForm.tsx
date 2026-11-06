@@ -19,7 +19,7 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
     whatsapp: '',
     businessType: 'E-commerce & D2C',
     services: initialServices.length > 0 ? initialServices : ['Website Development'],
-    estimatedBudget: '$2,500 - $5,000 / ₹2L - ₹4L',
+    estimatedBudget: '₹50,000 – ₹1,00,000 (Standard Retainer)',
     description: initialContext || '',
   });
 
@@ -71,11 +71,12 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
   ];
 
   const budgetTiers = [
-    '< $2,500 / < ₹2 Lakhs (Targeted Sprint)',
-    '$2,500 - $5,000 / ₹2L - ₹4L (Standard Build)',
-    '$5,000 - $10,000 / ₹4L - ₹8L (Comprehensive Ecosystem)',
-    '$10,000+ / ₹8L+ (Full Scale Agency Partnership)',
-    'Flexible / Scope To Be Defined',
+    'Under ₹25,000 (Starter / Fast Sprint)',
+    '₹25,000 – ₹50,000 (Growth Setup / Essential Build)',
+    '₹50,000 – ₹1,00,000 (Standard Retainer / Flagship Build)',
+    '₹1,00,000 – ₹2,50,000 (Comprehensive Multi-Division Ecosystem)',
+    '₹2,50,000+ (Full Enterprise / Super Package Retainer)',
+    'Flexible / Scope To Be Discussed',
   ];
 
   const toggleService = (service: string) => {
@@ -284,11 +285,14 @@ export const ProjectInquiryForm: React.FC<ProjectInquiryFormProps> = ({
           )}
         </div>
 
-        {/* Estimated Budget */}
+        {/* Estimated Budget in INR */}
         <div>
-          <label className="block text-xs font-mono uppercase tracking-wider text-[#A1A1A1] mb-2">
-            Estimated Budget / Investment Range
-          </label>
+          <div className="flex items-center justify-between mb-2">
+            <label className="block text-xs font-mono uppercase tracking-wider text-[#A1A1A1]">
+              Estimated Investment (in INR ₹)
+            </label>
+            <span className="text-[10px] font-mono text-[#C6A96C]">Indian Rupees (₹)</span>
+          </div>
           <select
             value={formData.estimatedBudget}
             onChange={(e) => setFormData({ ...formData, estimatedBudget: e.target.value })}

@@ -7,11 +7,11 @@ export const servicesData: ServiceItem[] = [
     title: 'YOUTUBE MANAGEMENT',
     tagline: 'Strategic YouTube Channels That Drive Influence & Revenue',
     description: 'Build a stronger YouTube presence with strategic content planning, professional creative execution, and channel optimization.',
-    badge: 'Growth & Authority',
-    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80',
+    badge: 'Grow • Manage • Monetize',
+    image: '/services/youtube-management.jpg',
     metric: {
       label: 'Average Audience Retention Increase',
-      value: '+210%',
+      value: '+248%',
     },
     features: [
       'Channel strategy',
@@ -43,11 +43,11 @@ export const servicesData: ServiceItem[] = [
     title: 'INSTAGRAM MANAGEMENT',
     tagline: 'A Cohesive Visual Identity & High-Engagement Grid',
     description: 'Create a consistent, engaging, and professionally managed Instagram presence that reflects your brand.',
-    badge: 'Visual Brand Cohesion',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+    badge: 'Grow • Engage • Convert',
+    image: '/services/instagram-management.jpg',
     metric: {
-      label: 'Avg. Organic Engagement Surge',
-      value: '3.4x',
+      label: 'Avg. Profile Growth Rate',
+      value: '+312%',
     },
     features: [
       'Content calendars',
@@ -78,8 +78,8 @@ export const servicesData: ServiceItem[] = [
     title: 'WEBSITE DEVELOPMENT',
     tagline: 'High-Performance Digital Architectures Built for Conversion',
     description: 'Transform your business into a powerful digital experience through professionally designed and developed websites.',
-    badge: 'Digital Flagship',
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
+    badge: 'Build • Design • Launch • Scale',
+    image: '/services/website-development.jpg',
     metric: {
       label: 'Average PageSpeed Performance',
       value: '99/100',
@@ -115,7 +115,7 @@ export const servicesData: ServiceItem[] = [
     tagline: 'Next-Gen Visuals, Commercial Grading & AI Workflows',
     description: 'Bring ideas to life through professional creative production, visual storytelling, and AI-powered content.',
     badge: 'Cinematic & AI',
-    image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1200&q=80',
+    image: '/services/creative-production.jpg',
     metric: {
       label: 'Production Speed Acceleration',
       value: '5x Faster',
@@ -137,7 +137,7 @@ export const servicesData: ServiceItem[] = [
       deliverables: [
         'Commercial video editing with sound design and cinematic color grading',
         'Hyper-realistic AI product visualization and virtual photography',
-        'Performance ad creative variants optimized for Meta, TikTok & Google',
+        'Performance ad creative variants optimized for Meta, YouTube & Google',
         'High-resolution print and digital key visual campaign assets'
       ],
       turnaround: 'Sprint deliveries from 24h to 7 days',
@@ -150,8 +150,8 @@ export const servicesData: ServiceItem[] = [
     title: 'COMPLETE DIGITAL MANAGEMENT',
     tagline: 'One Creative Partner. Your Entire Online Ecosystem.',
     description: 'One creative partner. Multiple digital capabilities. A complete digital presence designed around your business.',
-    badge: 'Unified Partner',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+    badge: 'Super Package',
+    image: '/services/complete-digital-management.jpg',
     metric: {
       label: 'Single Point of Creative Accountability',
       value: '100% Unified',
@@ -173,8 +173,8 @@ export const servicesData: ServiceItem[] = [
       deliverables: [
         'A single agile team handling your web, social channels, and media creation',
         'Zero friction between web developers, video editors, and social strategists',
-        'Custom modular pricing based precisely on your monthly needs',
-        'Transparent weekly deliverables tracking and direct Slack / WhatsApp sync'
+        'Custom modular pricing in INR based precisely on your monthly needs',
+        'Transparent weekly deliverables tracking and direct WhatsApp / Slack sync'
       ],
       turnaround: 'Full ongoing partnership with dedicated weekly sprint cadence',
       idealFor: ['Established Businesses', 'Fast-scaling Startups', 'Disruptive D2C Brands']

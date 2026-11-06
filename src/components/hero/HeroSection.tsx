@@ -65,7 +65,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
 
-        {/* Central Spatial Visual Area with 4 Orbiting Floating Glass Panels */}
+        {/* Central Spatial Visual Area with 4 Orbiting Floating Glass Panels (with Real Thumbnails!) */}
         <div className="relative my-8 sm:my-12 flex items-center justify-center perspective-container">
           
           {/* Central 3D Visual with warm amber rim lighting */}
@@ -95,103 +95,126 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* ========================================================
-              4 FLOATING SPATIAL GLASS PANELS ORBITING THE HERO
-              (Inspired by Reference Images 1, 2, 4 with rich liquid glass)
+              4 FLOATING SPATIAL GLASS PANELS WITH BESPOKE THUMBNAILS
              ======================================================== */}
 
           {/* Floating Glass Panel 1: YOUTUBE MANAGEMENT (Top-Left) */}
-          <div className="hidden lg:block absolute left-4 xl:left-8 top-4 z-20 animate-float-slow">
-            <div className="floating-glass-card p-5 max-w-[240px]">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-8 h-8 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center">
-                  <Youtube className="w-4 h-4 text-red-400" />
+          <div className="hidden lg:block absolute left-2 xl:left-6 top-2 z-20 animate-float-slow">
+            <div className="floating-glass-card p-3.5 max-w-[260px] overflow-hidden">
+              <div className="relative h-28 w-full rounded-xl overflow-hidden mb-3 border border-white/10">
+                <img
+                  src="/services/youtube-management.jpg"
+                  alt="YouTube Management"
+                  className="w-full h-full object-cover filter contrast-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C10] via-transparent to-transparent opacity-80" />
+                <div className="absolute top-2 left-2">
+                  <span className="px-2 py-0.5 rounded-full spatial-nav-capsule text-[8px] font-mono text-[#D98B3A]">
+                    DIV 01
+                  </span>
                 </div>
-                <span className="text-[10px] font-mono uppercase text-[#D98B3A] tracking-wider">
-                  01 // YOUTUBE
-                </span>
+                <div className="absolute bottom-2 right-2">
+                  <span className="text-[10px] font-mono font-bold text-white px-2 py-0.5 rounded-full bg-red-600/80">
+                    +248% Growth
+                  </span>
+                </div>
               </div>
-              <h4 className="font-headline font-semibold text-white text-sm mb-1">
-                YouTube Growth
+              <h4 className="font-headline font-bold text-white text-xs mb-0.5">
+                YouTube Management
               </h4>
-              <p className="text-[11px] text-[#A1A1A1] leading-relaxed">
-                Strategic channel curation, high-CTR packaging & SEO.
+              <p className="text-[10px] text-[#A1A1A1] leading-relaxed">
+                Grow • Manage • Monetize
               </p>
-              <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] font-mono">
-                <span className="text-[#A1A1A1]">Reach Growth:</span>
-                <span className="text-[#C6A96C] font-bold">+210%</span>
-              </div>
             </div>
           </div>
 
           {/* Floating Glass Panel 2: INSTAGRAM MANAGEMENT (Bottom-Left) */}
-          <div className="hidden lg:block absolute left-8 xl:left-16 bottom-6 z-20 animate-float-delayed">
-            <div className="floating-glass-card p-5 max-w-[250px]">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-8 h-8 rounded-full bg-pink-500/10 border border-pink-500/30 flex items-center justify-center">
-                  <Instagram className="w-4 h-4 text-pink-400" />
+          <div className="hidden lg:block absolute left-6 xl:left-12 bottom-4 z-20 animate-float-delayed">
+            <div className="floating-glass-card p-3.5 max-w-[260px] overflow-hidden">
+              <div className="relative h-28 w-full rounded-xl overflow-hidden mb-3 border border-white/10">
+                <img
+                  src="/services/instagram-management.jpg"
+                  alt="Instagram Management"
+                  className="w-full h-full object-cover filter contrast-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C10] via-transparent to-transparent opacity-80" />
+                <div className="absolute top-2 left-2">
+                  <span className="px-2 py-0.5 rounded-full spatial-nav-capsule text-[8px] font-mono text-[#D98B3A]">
+                    DIV 02
+                  </span>
                 </div>
-                <span className="text-[10px] font-mono uppercase text-[#D98B3A] tracking-wider">
-                  02 // INSTAGRAM
-                </span>
+                <div className="absolute bottom-2 right-2">
+                  <span className="text-[10px] font-mono font-bold text-white px-2 py-0.5 rounded-full bg-pink-600/80">
+                    +312% Reach
+                  </span>
+                </div>
               </div>
-              <h4 className="font-headline font-semibold text-white text-sm mb-1">
-                Visual Grid Cohesion
+              <h4 className="font-headline font-bold text-white text-xs mb-0.5">
+                Instagram Management
               </h4>
-              <p className="text-[11px] text-[#A1A1A1] leading-relaxed">
-                Editorial grids, high-retention Reels & story sales funnels.
+              <p className="text-[10px] text-[#A1A1A1] leading-relaxed">
+                Grow • Engage • Convert
               </p>
-              <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] font-mono">
-                <span className="text-[#A1A1A1]">Engagement:</span>
-                <span className="text-[#C6A96C] font-bold">3.4x Organic</span>
-              </div>
             </div>
           </div>
 
           {/* Floating Glass Panel 3: WEBSITE DEVELOPMENT (Top-Right) */}
-          <div className="hidden lg:block absolute right-4 xl:right-8 top-8 z-20 animate-float-reverse">
-            <div className="floating-glass-card p-5 max-w-[250px]">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
-                  <Globe className="w-4 h-4 text-blue-400" />
+          <div className="hidden lg:block absolute right-2 xl:right-6 top-4 z-20 animate-float-reverse">
+            <div className="floating-glass-card p-3.5 max-w-[260px] overflow-hidden">
+              <div className="relative h-28 w-full rounded-xl overflow-hidden mb-3 border border-white/10">
+                <img
+                  src="/services/website-development.jpg"
+                  alt="Website Development"
+                  className="w-full h-full object-cover filter contrast-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C10] via-transparent to-transparent opacity-80" />
+                <div className="absolute top-2 left-2">
+                  <span className="px-2 py-0.5 rounded-full spatial-nav-capsule text-[8px] font-mono text-[#D98B3A]">
+                    DIV 03
+                  </span>
                 </div>
-                <span className="text-[10px] font-mono uppercase text-[#D98B3A] tracking-wider">
-                  03 // WEB DEV
-                </span>
+                <div className="absolute bottom-2 right-2">
+                  <span className="text-[10px] font-mono font-bold text-white px-2 py-0.5 rounded-full bg-blue-600/80">
+                    99/100 Speed
+                  </span>
+                </div>
               </div>
-              <h4 className="font-headline font-semibold text-white text-sm mb-1">
-                Digital Flagships
+              <h4 className="font-headline font-bold text-white text-xs mb-0.5">
+                Website Development
               </h4>
-              <p className="text-[11px] text-[#A1A1A1] leading-relaxed">
-                Sub-second latency, React architectures & conversion UX.
+              <p className="text-[10px] text-[#A1A1A1] leading-relaxed">
+                Build • Design • Launch • Scale
               </p>
-              <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] font-mono">
-                <span className="text-[#A1A1A1]">Lighthouse:</span>
-                <span className="text-[#C6A96C] font-bold">99/100 Score</span>
-              </div>
             </div>
           </div>
 
           {/* Floating Glass Panel 4: CREATIVE PRODUCTION (Bottom-Right) */}
-          <div className="hidden lg:block absolute right-8 xl:right-14 bottom-4 z-20 animate-float-slow">
-            <div className="floating-glass-card p-5 max-w-[260px]">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center">
-                  <Film className="w-4 h-4 text-amber-400" />
+          <div className="hidden lg:block absolute right-6 xl:right-12 bottom-2 z-20 animate-float-slow">
+            <div className="floating-glass-card p-3.5 max-w-[260px] overflow-hidden">
+              <div className="relative h-28 w-full rounded-xl overflow-hidden mb-3 border border-white/10">
+                <img
+                  src="/services/creative-production.jpg"
+                  alt="Creative Production Studio"
+                  className="w-full h-full object-cover filter contrast-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C10] via-transparent to-transparent opacity-80" />
+                <div className="absolute top-2 left-2">
+                  <span className="px-2 py-0.5 rounded-full spatial-nav-capsule text-[8px] font-mono text-[#D98B3A]">
+                    DIV 04
+                  </span>
                 </div>
-                <span className="text-[10px] font-mono uppercase text-[#D98B3A] tracking-wider">
-                  04 // PRODUCTION
-                </span>
+                <div className="absolute bottom-2 right-2">
+                  <span className="text-[10px] font-mono font-bold text-white px-2 py-0.5 rounded-full bg-amber-600/80">
+                    5x Velocity
+                  </span>
+                </div>
               </div>
-              <h4 className="font-headline font-semibold text-white text-sm mb-1">
-                AI & Cinematic Video
+              <h4 className="font-headline font-bold text-white text-xs mb-0.5">
+                Creative Production Studio
               </h4>
-              <p className="text-[11px] text-[#A1A1A1] leading-relaxed">
-                Color grading, 12K generative concept visuals & performance ads.
+              <p className="text-[10px] text-[#A1A1A1] leading-relaxed">
+                Cinematic & AI Workflows
               </p>
-              <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] font-mono">
-                <span className="text-[#A1A1A1]">Pipeline:</span>
-                <span className="text-[#C6A96C] font-bold">5x Faster Sprints</span>
-              </div>
             </div>
           </div>
 
@@ -202,11 +225,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Bottom Subtle Scroll Indicator */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono uppercase text-[#A1A1A1] tracking-widest">
         <div className="hidden sm:flex items-center gap-6">
-          <span>140+ RELEASES</span>
+          <span>140+ ENTERPRISE RELEASES</span>
           <span className="text-white/20">•</span>
           <span>4.8X AVERAGE GROWTH</span>
           <span className="text-white/20">•</span>
-          <span>UNIFIED ECOSYSTEM</span>
+          <span>INDIAN & GLOBAL CLIENTELE</span>
         </div>
 
         <button

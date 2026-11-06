@@ -131,7 +131,7 @@ export const portfolioData: ProjectItem[] = [
       'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80'
     ],
     summary: 'Hyper-realistic AI-synthesized architectural visualizations and speculative product imagery created with custom prompt models and neural upscalers.',
-    challenge: 'Traditional physical set builds and 3D rendering for 40 conceptual spaces would have taken 9 months and cost over $200,000.',
+    challenge: 'Traditional physical set builds and 3D rendering for 40 conceptual spaces would have taken 9 months and cost over ₹1.5 Crore.',
     solution: 'Developed a proprietary LoRA-trained workflow generating ultra-high-resolution 12K key visuals with realistic material refractions and shadows.',
     deliverables: ['Generative Neural Concept Art', '12K Print Master Assets', 'Material Physics Tuning', 'Billboard Campaign Suite'],
     results: [

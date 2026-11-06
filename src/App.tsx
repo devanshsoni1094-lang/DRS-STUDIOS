@@ -9,6 +9,7 @@ import { WhyUsSection } from './components/why-us/WhyUsSection';
 import { TargetAudienceSection } from './components/audiences/TargetAudienceSection';
 import { ContactSection } from './components/contact/ContactSection';
 import { Footer } from './components/layout/Footer';
+import { GlowCursor } from './components/ui/GlowCursor';
 
 export const App: React.FC = () => {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
@@ -52,28 +53,31 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#C6A96C]/30 selection:text-white">
-      {/* Sticky Luxury Navbar */}
+    <div className="min-h-screen bg-[#050505] text-[#F5F5F5] selection:bg-[#D98B3A]/30 selection:text-white relative">
+      {/* Interactive Glowing Cursor Following the Mouse */}
+      <GlowCursor />
+
+      {/* Floating Spatial Glass Navbar */}
       <Navbar onStartProject={scrollToContact} />
 
       {/* Main Content Sections */}
       <main>
-        {/* 04. Hero Section */}
+        {/* 05. Hero Section */}
         <HeroSection
           onExploreServices={scrollToServices}
           onStartProject={scrollToContact}
         />
 
-        {/* 05. About DRS Studios */}
+        {/* 09. About DRS Studios */}
         <AboutSection onStartProject={scrollToContact} />
 
-        {/* 06. Complete Digital Ecosystem (5 Services + Modular Configurator) */}
+        {/* 07. Complete Digital Ecosystem (5 Services + Modular Configurator) */}
         <ServicesSection
           onInquireService={handleInquireService}
           onModularScopeBuild={handleModularScopeBuild}
         />
 
-        {/* 07. Creative Portfolio (Work That Speaks For Itself) */}
+        {/* 08. Creative Portfolio (Work That Speaks For Itself) */}
         <PortfolioSection onInquireProject={handleInquireProject} />
 
         {/* 08. Our Process (From Idea To Execution) */}
@@ -87,14 +91,14 @@ export const App: React.FC = () => {
           onSelectAudienceServices={handleSelectAudienceServices}
         />
 
-        {/* 10. Contact & Project Inquiry */}
+        {/* 11. Contact & Project Inquiry */}
         <ContactSection
           initialServices={selectedServices}
           initialContext={inquiryContext}
         />
       </main>
 
-      {/* 11. Footer */}
+      {/* Footer */}
       <Footer onStartProject={scrollToContact} />
     </div>
   );
